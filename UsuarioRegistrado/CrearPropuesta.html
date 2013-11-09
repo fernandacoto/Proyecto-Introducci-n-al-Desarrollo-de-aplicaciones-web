@@ -1,0 +1,144 @@
+﻿<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>SAC</title>
+<script type="text/JavaScript" src="../js/crearPropuesta.js"></script> 
+<link rel="stylesheet" type="text/css" href="../estilos/EstilosGenericos.css">
+<link rel="stylesheet" type="text/css" href="../estilos/crearPropuesta.css">
+</head>
+
+<body>
+	<div id="Contenido">
+		<div id="Header">	
+			<div id="Banner">	
+				<img border="0" src="../multimedia/banneropcional.gif" alt="Banner" width="100%" height="20%">
+			</div>	
+		</div>
+		
+		<div id="Contenido">
+			<div id="MenuBar" class="MenuBar" >
+				<ul>
+					<li><a href="./PerfilUsuario.html">Perfil</a></li>
+					<li><a href="./CrearEventos.html">Eventos</a></li>
+					<li><a href="./VerTipoSesiones.html">Tipos de Sesión</a></li>
+					<li><a href="./VerSalones.html">Salones</a></li>
+					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
+				</ul>
+			</div>
+		</div><br><br>		
+		<div>
+			<span class="auto-style1">
+			<label class="Titulo1">Propuestas</label></span><br>
+
+		</div>
+		<br>
+		
+		<div>
+			<button class="TipoBoton1"  onclick="mostrarFormularioNuevaPropuesta()" type="button">Nueva propuesta</button> 
+		</div> <br>
+		
+			<div id="Tabla" class="Tabla">
+			
+				<table>
+					<thead>
+						<th>Nombre</th>
+						<th>Hora Inicio</th>
+						<th>Hora Fin</th>
+						<th>Tipo de Sesión</th>
+						<th>Salón</th>
+						<th>Favorito</th>
+						<th>Editar</th>
+						<th>Eliminar</th>						
+						<th>Estado</th>
+					</thead>
+					<tr>
+						<th>Bases de datos no relacionales</th>
+						<th>2:00 pm</th>
+						<th>4:00 pm</th>
+						<th>Ponencia</th>
+						<th>B4-03</th>
+						<th><a id="favorito"><img border="0" src="../multimedia/BotonFavorito.gif" alt="favorito" width="15px" height="15px"></a></th>
+						<th><a id="edit"><img border="0" src="../multimedia/BotonEditar.png" alt="edit" width="15px" height="15px"></a></th>
+						<th><a id="delete"><img border="0" src="../multimedia/BotonEliminar.png" alt="delete" width="15px" height="15px"></a></th>						
+						<th>Aprobada</th>
+					</tr>
+					<tr>
+						<th>Introducción html5 y css3</th>
+						<th>3:00 pm</th>
+						<th>6:00 pm</th>
+						<th>Taller</th>
+						<th>B4-03</th>
+						<th><a id="favorito0"><img border="0" src="../multimedia/BotonFavorito.gif" alt="favorito" width="15px" height="15px"></a></th>
+						<th><a id="edit0"><img border="0" src="../multimedia/BotonEditar.png" alt="edit" width="15px" height="15px"></a></th>
+						<th><a id="delete0"><img border="0" src="../multimedia/BotonEliminar.png" alt="delete" width="15px" height="15px"></a></th>						
+						<th>Aprobada</th>
+					</tr>
+				</table>
+
+				<div id="FormularioPropuesta" >
+		
+					<form id="MiFormPropuestaSesion" class="FormSAC" >
+					
+						<table>
+							<tr>
+								<td class="auto-style2">Nombre de la sesión: </td>
+								<td class="auto-style2"><input type="text" id="nombreSesion"> <br></td>
+							</tr>
+							<tr>
+								<td class="auto-style2">Descripción: </td>
+								<td class="auto-style2">
+								<textarea id="descripcion" rows="4" name="S1" style="width: 12.2em"> </textarea></td>
+							</tr>
+							<tr>
+								<td class="auto-style2">Hora Inicio:</td>
+								<td class="auto-style2"> 
+									<div class="hora"  id="hora">
+										<input type="text" id="HoraInicio" value="12">:
+										<input type="text" id="MinutoInicio" value="00">
+										<select id="meridianoInicio" name="D1">
+											<option value="am">a.m.</option>
+											<option value="pm">p.m.</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="auto-style2">Hora de fin: </td>
+								<td>
+									<div class="hora"  id="hora">								
+										<input type="text" id="HoraFin" value="12">:
+										<input type="text" id="MinutoFin" value="00">	
+										<select id="meridianoFin" name="D2">
+											<option value="am">a.m.</option>
+											<option value="pm">p.m.</option>
+										</select>
+									</div>
+								</td>
+							</tr>
+
+							<tr>
+								<td class="auto-style2">Tipo de sesión:</td>
+								<td class="auto-style2">
+								<select id="tipoSesion" name="D3">
+										<option value="Taller">Taller</option>
+										<option value="Ponencia">Ponencia</option>
+										<option value="Exposición">Exposición</option>
+										<option value="Exposición">Presentación</option>
+									</select><br>	
+								</td>
+							</tr>
+						</table>
+						<button id="submitPropuesta" value="Envia Propuesta" onclick="validarCampos()" class="TipoBoton3"></button>
+						
+					</form>
+				</div>
+			</div>
+			
+		<br>
+		
+	</div>
+</body>
+
+</html>
+

@@ -1,0 +1,32 @@
+#col1
+{
+	float: left;
+	width: 20%;
+}
+#col2
+{
+	float: left;
+	width: 80%;
+}
+
+#formulario_recurso, #escondido1, #escondido2
+{
+	display: none;
+}
+#warning1
+{
+	color: red;
+	display: none;
+}
+#formulario_recurso
+{
+	border-style: solid;
+	border-color: #9ED929;
+	width: 80%;
+	height: auto;
+	padding: 1%;
+}
+#Nuevo_recurso
+{
+	margin-left: 55%;
+}

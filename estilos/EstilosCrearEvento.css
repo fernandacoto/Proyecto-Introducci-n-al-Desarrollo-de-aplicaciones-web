@@ -1,0 +1,27 @@
+﻿#BotonNuevoEvento
+{
+	margin-left:63%;
+}
+
+#DivNuevoEvento
+{
+	margin:0 auto 0 auto;
+	width:50%;
+	border:medium;	
+	border-color:#9ED929;
+	border-style:solid;
+	display:none;
+}
+
+#InputDescripcionEvento
+{
+	font-family:"Century Schoolbook";
+	font-size:100%;
+	width:200%;
+	height:100%;
+}
+
+#ButtonGuardarEvento
+{
+	margin-left:350%;
+}

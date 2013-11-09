@@ -1,0 +1,23 @@
+#formularionuevasesion
+{
+	width: 100%;
+	height: auto;
+}
+#Guardar
+{
+	margin-left: 90%;
+}
+#AplicarCambios,#Volver
+{
+	margin-left: 80%;
+}
+#formularionuevasesion
+{
+	display: none;
+}
+#warning1, #warning2, #warning3, #warning4
+{
+	display: none;
+	color: red;
+}
+

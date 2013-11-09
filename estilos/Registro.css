@@ -1,0 +1,22 @@
+#Paso
+{
+	height: auto;
+	width: 100%;
+}
+#Finalizar, #BotonRegistro
+{
+	margin-left: 90%;
+}
+#warning1, #warning2, #warning3, #warning4, #warning5, #warning6, #warning7, #warning8
+{
+	display: none;
+	color: red;
+}
+#escondido, #escondido2
+{
+	float: right;
+}
+table #tablaRegistro td
+{
+	width: auto;
+}

@@ -1,0 +1,118 @@
+﻿<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>SAC</title>
+<script type="text/JavaScript" src="crearComentario.js"></script> 
+<link rel="stylesheet" type="text/css" href="../estilos/EstilosGenericos.css">
+<link rel="stylesheet" type="text/css" href="../estilos/crearComentario.css">
+
+</head>
+
+<body>
+	<div id="Contenido">
+		<div id="Header">	
+			<div id="Banner">	
+				<img border="0" src="../multimedia/banneropcional.gif" alt="Banner" width="100%" height="20%">
+			</div>	
+		</div>
+		
+		<div id="Contenido">
+			<div id="MenuBar" class="MenuBar" >
+				<ul>
+					<li><a href="./PerfilUsuario.html">Perfil</a></li>
+					<li><a href="./CrearEventos.html">Eventos</a></li>
+					<li><a href="./VerTipoSesiones.html">Tipos de Sesión</a></li>
+					<li><a href="./VerSalones.html">Salones</a></li>
+					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
+				</ul>
+			</div>
+		</div><br><br>		
+		<div>
+			<span class="auto-style1">
+			<label class="Titulo1">Comentarios de la sesión</label></span><br>
+
+		</div>
+		
+		<br>
+		<div>
+			<button class="TipoBoton1"  onclick="mostrarFormularioNuevoComentario()" type="button">Nuevo Comentario</button> 
+		</div> <br>
+
+		
+			<div id="Tabla" class="Tabla">
+				
+				<div id="MenuLateral" class="MenuLateral" style="width: 20%">
+				
+					<span class="Titulo2">Menu
+					</span>
+					<table border="0">
+					<tr>
+						<td><a href="default.asp" style="width: 105px">1.Ponentes</a></td>
+					</tr>
+					<tr>
+						<td><a href="default.asp">2.Comentarios</a></td>
+					</tr>
+					<tr>
+						<td><a href="default.asp" style="width: 106px">3.Preguntas</a></td>
+					</tr>
+					<tr>
+						<td><a href="default.asp" style="width: 106px">4.Notas</a></td>
+					</tr>
+					<tr>
+						<td><a href="default.asp" style="width: 105px">5.Recursos</a></td>
+					</tr>
+					</table>
+				</div>
+				
+				<div id="TablaDerecha" class="TablaDerecha">
+					<table>
+						<thead>
+							<th>Nota</th>						
+							<th>Usuario</th>
+							<th>Eliminar</th>
+						</thead>
+						<tr>
+							<th>Me gustó la manera en que se expusieron los temas, aunque el audio de la sesión pudo mejorar</th>						
+							<th>JonSanchez</th>
+							<th><a id="delete"><img border="0" src="../multimedia/BotonEliminar.png" alt="delete" width="15px" height="15px"></a></th>						
+						</tr>						
+						<tr>
+							<th style="height: 60px">La exposición fue muy corta pero se abarcaron todos los temas solicitados.</th>						
+							<th style="height: 60px">FerCoto</th>
+							<th style="height: 60px"><a id="delete"><img border="0" src="../multimedia/BotonEliminar.png" alt="delete" width="15px" height="15px"></a></th>						
+						</tr>
+						<tr>
+							<th>No escuché nada durante la exposición, más cuidado con esos detalles :-( </th>						
+							<th>MigUrena</th>
+							<th><a id="delete"><img border="0" src="../multimedia/BotonEliminar.png" alt="delete" width="15px" height="15px"></a></th>						
+						</tr>
+					</table>
+				</div>
+
+				<div id="FormularioComentario" >
+		
+					<form id="MiFormPropuestaSesion" class="FormSAC" >
+					
+						<table>
+							<tr>
+								<td class="auto-style2" style="width: 113px">
+								Publicar comentario:</td>
+								<td class="auto-style2">
+								<textarea id="textoComentario" name="S2" style="width: 24.6em; height: 146px;" class="auto-style3"> </textarea><br></td>
+							</tr>
+							</table>
+						<br>
+						<button id="submitComentario" value="EnviaComentario" onclick="validarCamposComentario()" class="TipoBoton3"></button>
+						
+					</form>
+				</div>
+			</div>
+			
+		<br>
+		
+	</div>
+</body>
+
+</html>
+

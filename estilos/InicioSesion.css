@@ -1,0 +1,14 @@
+﻿#InicioSesion{
+	height:100%;
+	width:50%;
+	float: right;
+	padding-right:25%;
+	padding-top:10%;
+}
+
+#FondoInicioSesion{
+	background-image:url('../multimedia/fondoLogin.jpg');
+	background-repeat:no-repeat;
+	height:100%;
+	width:100%;
+}

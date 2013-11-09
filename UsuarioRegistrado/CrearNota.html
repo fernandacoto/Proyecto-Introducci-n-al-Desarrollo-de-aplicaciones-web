@@ -1,0 +1,201 @@
+﻿<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>SAC</title>
+<script type="text/JavaScript" src="../js/crearNota.js"></script> 
+<link rel="stylesheet" type="text/css" href="../estilos/EstilosGenericos.css">
+<link rel="stylesheet" type="text/css" href="../estilos/crearNota.css">
+
+<style type="text/css">
+.auto-style1 {
+	font-family: "Century Schoolbook";
+}
+
+
+#Tabla{
+	float:left;
+	border-color:green;
+}
+
+.Tabla{
+	display: inline-block;
+	padding-top:15px;
+	padding-right:30%;
+	float:right;
+} 
+
+.FormSAC{
+	display: inline-block;
+	padding-top:15px;
+	margin-top:1%;
+}
+
+#Tabla td:first-child {
+	width: 30%;
+}
+
+#Tabla td:first-child {
+	padding-left: 6px;
+}
+
+#Tabla td:first-child + td {
+	width: 200px;
+}
+
+input[type=text], textarea{ 
+    width:12em; 
+    border-radius:2px; 
+    border: solid 1px #ccc; 
+    padding:0.4em; 
+    background-color: #f5f5f5; 
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.2); 
+}
+
+
+#hora input[type=text], textarea, select { 
+    width:5em;
+    border-radius:2px; 
+    border: solid 1px #ccc; 
+    padding:0.4em; 
+    background-color: #f5f5f5; 
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.2); 
+}
+
+select { 
+    width:6em;
+    border-radius:2px; 
+    border: solid 1px #ccc; 
+    padding:0.4em; 
+    background-color: #f5f5f5; 
+    box-shadow: inset 0 2px 3px rgba(0,0,0,0.2); 
+}
+
+input[type=submit] { 
+   background-color: rgba(255,255,255,1);
+    box-shadow: 4px 3px 7px 1px rgba(209,206,125,1);
+	border: 2px solid rgba(73,179,38,1);
+	-webkit-border-radius: 27px;
+	-moz-border-radius: 27px;
+	border-radius: 27px;
+	width: 235px;
+	height: 38px;
+	display: inline-block;
+	font-size: 18px;
+	font-family: "Century Schoolbook";
+	line-height: 25px;
+	text-indent: 3px;
+	text-align: center;
+	color: rgba(0,0,0,1);
+	background-image: linear-gradient(top, rgba(146,214,94,1) 18%,rgba(255,255,255,0) 100%);
+}
+.auto-style2 {
+	border-collapse: collapse;
+	border-style: none;
+	border-color: inherit;
+	border-width: 0px;
+	padding-right: 6px;
+}
+.auto-style3 {
+	margin-left: 6px;
+}
+</style>
+</head>
+
+<body>
+	<div id="Contenido">
+		<div id="Header">	
+			<div id="Banner">	
+				<img border="0" src="../multimedia/banneropcional.gif" alt="Banner" width="100%" height="20%">
+			</div>	
+		</div>
+		
+		<div id="Contenido">
+			<div id="MenuBar" class="MenuBar" >
+				<ul>
+					<li><a href="#Perfil">Perfil</a></li>
+					<li><a href="./CrearEventos.html">Eventos</a></li>
+					<li><a href="./VerTipoSesiones.html">Tipos de Sesión</a></li>
+					<li><a href="./VerSalones.html">Salones</a></li>
+					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
+				</ul>
+			</div>
+		</div><br><br>		
+		<div>
+			<span class="auto-style1">
+			<label class="Titulo1">Notas</label></span><br>
+			<div>
+				<button class="TipoBoton1"  onclick="mostrarFormularioNuevaNota()" type="button">Nueva nota</button> 
+			</div> <br>
+
+		</div>
+		
+		<br>
+		
+			<div id="Tabla" class="Tabla">
+				
+				<div id="MenuLateral" class="MenuLateral" style="width: 20%">
+				
+					<span class="Titulo2">Menu
+					</span>
+					<table border="0">
+					<tr>
+						<td><a href="default.asp" style="width: 105px">1.Ponentes</a></td>
+					</tr>
+					<tr>
+						<td><a href="default.asp">2.Comentarios</a></td>
+					</tr>
+					<tr>
+						<td><a href="default.asp" style="width: 106px">3.Preguntas</a></td>
+					</tr>
+					<tr>
+						<td><a href="default.asp" style="width: 106px">4.Notas</a></td>
+					</tr>
+					<tr>
+						<td><a href="default.asp" style="width: 105px">5.Recursos</a></td>
+					</tr>
+					</table>
+				</div>
+				
+				<div id="TablaDerecha" class="TablaDerecha">
+
+					<table>
+						<thead>
+							<th>Nota</th>
+							<th>Eliminar</th>
+						</thead>
+						<tr>
+							<th>La presente sesión trató de las ventajas competitivas que podemos obtener acerca...</th>
+							<th><a id="delete"><img border="0" src="../multimedia/BotonEliminar.png" alt="delete" width="15px" height="15px"></a></th>						
+						</tr>
+						<tr>
+							<th>El expositor realizó una breve explicación de los fundamentos que rigen el proceso de...</th>
+							<th><a id="delete"><img border="0" src="../multimedia/BotonEliminar.png" alt="delete" width="15px" height="15px"></a></th>						
+						</tr>
+					</table>
+				</div>
+				<div id="FormularioNota" >
+			
+						<form id="MiFormPropuestaSesion" class="FormSAC" >
+						
+							<table>
+								<tr>
+									<td class="auto-style2" style="width: 113px">
+									Nueva nota:</td>
+									<td class="auto-style2">
+									<textarea id="textoNota" name="S2" style="width: 36.2em; height: 146px;" class="auto-style3"> </textarea><br></td>
+								</tr>
+								</table>
+							<br>
+							<button id="GuardarNota" value="GuardarNota" onclick="validarCamposNota()" class="TipoBoton1">Guardar Nota</button>							
+						</form>
+				</div>
+			</div>
+			
+		<br>
+		
+	</div>
+</body>
+
+</html>
+

@@ -1,0 +1,35 @@
+﻿/*---------------------------------img-------------------------------------*/
+#imagen
+{
+	float:left;
+	margin-left:10%;
+	padding-right:10%; 
+}
+
+
+
+text
+{
+	font-family:"Century Schoolbook";
+	font-size:22px;
+	font-weight:lighter;	
+}
+.Titulo1
+{
+	margin-left:10%;
+	font-family:"Vivaldi";
+	font-size:xx-large;
+}
+
+
+.oculto{
+	display: none;
+}
+.noOculto{
+	display: block;
+}
+
+
+
+
+

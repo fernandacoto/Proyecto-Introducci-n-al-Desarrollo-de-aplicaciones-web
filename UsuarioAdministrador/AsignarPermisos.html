@@ -1,0 +1,98 @@
+﻿<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>SAC</title>
+<link rel="stylesheet" type="text/css" href="../estilos/AsignarPermisos.css">
+<script type="text/javascript" src="../js/AsignarUsuariosS.js"></script>
+</head>
+
+<body>
+	<div id="Contenido">
+		<div id="Header">	
+			<div id="Banner">	
+				<img border="0" src="../multimedia/banneropcional.gif" alt="Banner" width="100%" height="20%">
+			</div>
+		</div>
+		
+		<div id="Contenido">
+			<div id="MenuBar" class="MenuBar" >
+				<ul>
+					<li><a href="./AsignarPermisos.html">Permisos</a></li>
+					<li><a href="./AsignarUsuarios.html">Usuarios</a></li>
+					<li><a href="./CrearEventos.html">Eventos</a></li>
+					<li><a href="./CrearTipoSesion.html">Tipos de Sesión</a></li>
+					<li><a href="./CrearSalon.html">Salones</a></li>				
+					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
+				
+				</ul>
+			</div>
+			
+			<div id="Tabla">
+				<span class="auto-style1">
+				<label class="Titulo1"><br>Asignar&nbsp; Permisos</label></span><table align="center">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th id="HI">Correo</th>
+						<th id="HF">Nombre Usuario</th>
+						<th id="TS">Tipo Usuario</th>
+						<th>Evento</th>
+					</tr>
+				</thead>
+					<tr>
+						<th>Walter Ching</th>
+						<th>wching@gmail.com</th>
+						<th>wching</th>
+						<th><select id="TipoUsuario"  name="TipoUsuario">
+							<option value="Normal">Normal</option>
+							<option value="Administrador">Administrador</option>
+						</select></th>
+						<th><select id="Eventos"  name="Eventos">
+							<option value="seleccione">--Seleccione uno--</option>
+							<option value="Evento 1">Evento 1</option>
+							<option value="Evento 2">Evento 2</option>
+							<option value="Evento 3">Evento 3</option>
+						</select></th>
+					</tr>
+	
+					<tr>
+						<th>Paola Vargas</th>
+						<th>pao.vargas@gmail.com</th>
+						<th>pvargas</th>
+						<th><select id="TipoUsuario"  name="TipoUsuario">
+							<option value="Normal">Normal</option>
+							<option value="Administrador">Administrador</option>
+						</select></th>
+						<th><select id="Eventos"  name="Eventos">
+							<option value="seleccione">--Seleccione uno--</option>
+							<option value="Evento 1">Evento 1</option>
+							<option value="Evento 2">Evento 2</option>
+							<option value="Evento 3">Evento 3</option>
+						</select></th>
+					</tr>
+	
+					<tr>
+						<th>Luis Carlos García</th>
+						<th>lcgarcia@gmail.com</th>
+						<th>lgarcia</th>
+						<th><select id="TipoUsuario"  name="TipoUsuario">
+							<option value="Normal">Normal</option>
+							<option value="Administrador">Administrador</option>
+						</select></th>
+						<th><select id="Eventos"  name="Eventos">
+							<option value="seleccione">--Seleccione uno--</option>
+							<option value="Evento 1">Evento 1</option>
+							<option value="Evento 2">Evento 2</option>
+							<option value="Evento 3">Evento 3</option>
+						</select></th>
+					</tr>
+				</table>
+			</div>
+			<button id="Asignar">Asignar Permisos</button><br>
+			
+		</div>
+	</div>
+</body>
+
+</html>

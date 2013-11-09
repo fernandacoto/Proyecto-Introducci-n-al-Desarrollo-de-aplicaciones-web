@@ -1,0 +1,78 @@
+﻿<html>
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>SAC</title>
+<link rel="stylesheet" type="text/css" href="../estilos/EstilosGenericos.css">
+<link rel="stylesheet" type="text/css" href="../estilos/VerHilos.css">
+
+</head>
+
+<body>
+	<div id="Contenido">
+		<div id="Header">	
+			<div id="Banner">	
+				<img border="0" src="../multimedia/banneropcional.gif" alt="Banner" width="100%" height="20%">
+			</div>	
+		</div>
+		
+		<div id="Contenido">
+			<div id="MenuBar" class="MenuBar" >
+				<ul>
+					<li><a href="./PerfilUsuario.html">Perfil</a></li>
+					<li><a href="./CrearEventos.html">Eventos</a></li>
+					<li><a href="./VerTipoSesiones.html">Tipos de Sesión</a></li>
+					<li><a href="./VerSalones.html">Salones</a></li>
+					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
+				</ul>
+			</div><br>
+			<div>
+				<span class="auto-style1">
+				<label class="Titulo1">Hilos<br></label></span><br>
+			</div>
+			<div id = "Botones">
+				<button onclick="location.href='./CrearEventos.html'" class="TipoBoton1">Volver</button><br>
+			</div>
+			
+			<div id="Tabla" class="Tabla">
+				<table align="center">
+				<thead>
+					<tr>
+						<th>Nombre</th>
+						<th>Lugar</th>
+						<th>Fecha</th>
+						<th>Favorito</th>
+						<th>Ver sesiones</th>
+					</tr>
+				</thead>
+					<tr>
+						<th>Hilo 1</th>
+						<th>Hotel Herradura</th>
+						<th>01/10/2013</th>	
+						<th> <button class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"> </button></th>
+						<th> <button onclick="location.href='./VerSesiones.html'" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"> </button></th>
+					</tr>
+	
+					<tr>
+						<th>Hilo 2</th>
+						<th>Hotel Corobici</th>
+						<th>15/08/2014</th>					
+						<th> <button class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"> </button></th>
+						<th> <button onclick="location.href='./VerSesiones.html'" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"> </button></th>
+					</tr>
+	
+					<tr>
+						<th>Hilo 3</th>
+						<th>Hotel Real Intercontinental</th>
+						<th>10/11/2013</th>				
+						<th> <button class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"> </button></th>
+						<th> <button onclick="location.href='./VerSesiones.html'" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"> </button></th>
+					</tr>
+				</table>
+			</div>
+			
+		</div>
+	</div>
+</body>
+
+</html>
