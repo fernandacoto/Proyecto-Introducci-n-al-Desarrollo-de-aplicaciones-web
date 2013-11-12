@@ -28,7 +28,7 @@
 			</div>
 		</div><br>
 		<div id="Registro">
-			<form id="Paso">
+			<form id="Paso" method ="POST" action ="insertar_usuario.php" onSubmit = "return validar_paso_2()" enctype="multipart/form-data">
 				<fieldset>
 				<legend>Paso 1 de 2</legend>
 				<table id="tablaRegistro">
@@ -50,19 +50,32 @@
 						<input type="text" id="Apellido 2"></input><div id="escondido"><label id="warning3">*Este es un campo requerido</label></div><br><br>
 						<input type="text" id="Email"></input><div id="escondido"><label id="warning4">*Este es un campo requerido</label></div><br><br>
 						<select class="selects" id="Provincia">
-						  <option value="San Jose">San Jos&eacute;</option>
-						</select><br><br>
-						<select class="selects" id="Canton">
-						  <option value="San Jose">San Jos&eacute;</option>
-						</select><br><br>
-						<select class="selects" id="Distrito">
-						  <option value="Merced">Merced</option>
+						    <?php
+							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
+							// Check connection
+							if (mysqli_connect_errno())
+							  {
+							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+							  }
+
+							$result = mysqli_query($con,"SELECT * FROM SAC_Provincia");
+
+							while($row = mysqli_fetch_array($result))
+							  {
+							  echo "<option value =". $row['IdProvincia'] .">".$row['NombreProvincia']."</option>";
+							  }
+
+							mysqli_close($con);
+							?>
 						</select><br><br>
 						<select class="selects" id="Trabajo">
 						  <option value="Privado">Privado</option>
+						  <option value="Público">Público</option>
 						</select><br><br>
 						<select class="selects" id="Tipo_Empresa">
 						  <option value="TI">TI</option>
+						  <option value="Banca y Finanzas">Banca y Finanzas</option>
+						  <option value="Educación">Educación</option>
 						</select><br>
 
 					</td>
@@ -71,11 +84,10 @@
 				</table><br>
 				<input type="button"id="BotonRegistro" value="Siguiente" onclick="validar_paso_1()"/>
 				</fieldset>
-			</form>
+			    
 		</div>
 		<!---->
 		<div id="Registro_Paso2" class="Registro_Paso2">
-			<form id="Paso">
 				<fieldset>
 				<legend  id="Registro">Paso 2 de 2</legend>
 				<table id="tablaRegistro">
@@ -93,7 +105,7 @@
 					</tr>
 
 				</table><br>
-				<input type="button" id="Finalizar" value="Finalizar" onclick="validar_paso_2()" />
+				<input type="submit" id="Finalizar" value="Finalizar" name="BotonEnviar" /><!--onclick="validar_paso_2()"-->
 				</fieldset>
 			</form>
 		</div>
