@@ -1,4 +1,4 @@
-﻿<!DOCTYPE HTML>
+<!DOCTYPE HTML>
 
 <html>
 
@@ -64,34 +64,39 @@
 						<tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th>Hackaton 2013</th>
-							<th>Backcountry</th>
-							<th>01/11/2013</th>
-							<th>05/11/2013</th>
-							<th> <button id="favorito" class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"></button> </th>
-							<th><button id="editar" class="TipoBoton2"><img src="../multimedia/BotonEditar.png" height="30" width="30"></button></th>
-							<th><button id="eliminar" class="TipoBoton2"><img src="../multimedia/BotonEliminar.png" height="30" width="30"></button></th>	
-							<th><button id="ver_detalle" onclick="location.href='./AdministradorHilos.html'" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></button></th>
-						</tr>
-						
-						<tr>
-							<th>Semana Compu</th>
-							<th>TEC</th>
-							<th>11/11/2013</th>
-							<th>13/11/2013</th>
-							<th> <button id="favorito" class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"></button> </th>
-							<th><button id="editar" class="TipoBoton2"><img src="../multimedia/BotonEditar.png" height="30" width="30"></button></th>
-							<th><button id="eliminar" class="TipoBoton2"><img src="../multimedia/BotonEliminar.png" height="30" width="30"></button></th>	
-							<th><button id="ver_detalle" onclick="location.href='./AdministradorHilos.html'" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></button></th>
 					
+						<?php
+							$con=mysqli_connect("localhost","murena","murena","jsanchez");
+							// Check connection
+							if (mysqli_connect_errno())
+							  {
+							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+							  }
+							
+							$result = mysqli_query($con,"SELECT * FROM `sac_evento`");
+							while($row = mysqli_fetch_array($result)){
+								$idEvento = $row['IdEvento'];	
+								echo '<tr>';
+								echo '<th>'. $row['NombreEvento'] .'</th>';
+								echo '<th>'. $row['LugarEvento'] .'</th>';
+								echo '<th>'. $row['FechaInicioEvento'] .'</th>';
+								echo '<th>'. $row['FechaFinEvento'] .'</th>';
+								echo '<th> <button id="favorito" class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"></button> </th>';
+								echo '<th><button id="editar" class="TipoBoton2"><img src="../multimedia/BotonEditar.png" height="30" width="30"></button></th>';
+								echo '<th><button id="eliminar" class="TipoBoton2"><img src="../multimedia/BotonEliminar.png" height="30" width="30"></button></th>';	
+								echo '<th> <a  href="./AdministradorHilos.php?idProyecto='.$idEvento.'"> <img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></a></th>';
+								echo '</tr>';
+							}					
+							mysqli_close($con);
+						?>
+											
 					</tbody>
 				</table>
 
 		</div> <br> <br> <br>
 		
 		<div id="DivNuevoEvento">
-		<form id ="FormNuevoEvento">
+		<form id ="FormNuevoEvento" name="FormNuevoEvento" method="post" action="./php/insertarEvento.php">
 			<table id="TablaNuevoEvento" "align="center">
 					<tr>
 						<td>
@@ -107,16 +112,16 @@
 							<label class="label">Descripción<br></label>
 						</td>
 						<td>
-							<textarea id="InputDescripcionEvento"> </textarea>
+							<textarea id="InputDescripcionEvento" name="InputDescripcionEvento"> </textarea>
 						</td>
 					</tr>
 					
 					<tr>
 						<td>
-							<label class="label">Lugar<br></label>
+							<label class="label" >Lugar<br></label>
 						</td>
 						<td>
-							<input type="text" id="InputLugarEvento">
+							<input type="text" id="InputLugarEvento" name="InputLugarEvento">
 						</td>
 					</tr>
 
@@ -125,7 +130,7 @@
 							<label class="label">Fecha de inicio<br></label>
 						</td>
 						<td>
-							<input type="date" id="InputFechaInicioEvento">
+							<input type="date" id="InputFechaInicioEvento" name="InputFechaInicioEvento">
 						</td>
 					</tr>
 					
@@ -134,7 +139,7 @@
 							<label class="label">Fecha de fin<br></label>
 						</td>
 						<td>
-							<input type="date" id="InputFechaFinEvento">
+							<input type="date" id="InputFechaFinEvento" name="InputFechaFinEvento">
 						</td>
 					</tr>
 					
@@ -143,7 +148,7 @@
 							<label class="label">Plazo para propuesta<br></label>
 						</td>
 						<td>
-							<input type="text" id="InputPlazoPropuestaEvento">
+							<input type="text" id="InputPlazoPropuestaEvento" name="InputPlazoPropuestaEvento">
 						</td>
 						<td>
 							<select id="SelectTipoPlazo" name="SelectTipoPlazo">

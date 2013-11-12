@@ -12,35 +12,35 @@ function validarCamposFormularioEventos()
 		FormularioNuevoEvento.InputNombreEvento.focus();
     	alert('El nombre del evento es un campo requerido.');
     	return false;
-	}
+	}else
 	
 	if (FormularioNuevoEvento.InputDescripcionEvento.value.length == 0)
 	{
 		FormularioNuevoEvento.InputDescripcionEvento.focus();
     	alert('La descripcion del evento es un campo requerido.');
     	return false;
-	}
+	}else
 
 	if (FormularioNuevoEvento.InputLugarEvento.value.length == 0)
 	{
 		FormularioNuevoEvento.InputLugarEvento.focus();
     	alert('El lugar del evento es un campo requerido.');
     	return false;
-	}
+	}else
 
 	if (FormularioNuevoEvento.InputFechaInicioEvento.value.length == 0)
 	{
 		FormularioNuevoEvento.InputFechaInicioEvento.focus();
     	alert('La fecha de inicio del evento es un campo requerido.');
     	return false;
-	}
+	}else
 
 	if (FormularioNuevoEvento.InputFechaFinEvento.value.length == 0)
 	{
 		FormularioNuevoEvento.InputFechaFinEvento.focus();
     	alert('La fecha de finalización del evento es un campo requerido.');
     	return false;
-	}
+	}else
 
 	if (FormularioNuevoEvento.InputPlazoPropuestaEvento.value.length == 0)
 	{
@@ -48,6 +48,6 @@ function validarCamposFormularioEventos()
     	alert('El plazo para recibir propuestas para el evento es un campo requerido.');
     	return false;
 	}
-
-	
+	else
+	document.forms["FormNuevoEvento"].submit();	
 }
