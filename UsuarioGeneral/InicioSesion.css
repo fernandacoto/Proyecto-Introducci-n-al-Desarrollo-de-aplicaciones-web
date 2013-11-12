@@ -13,3 +13,16 @@
 	width:100%;
 	
 }
+#warning1, #warning2, #warning3, #warning4, #warning5, #warning6, #warning7, #warning8
+{
+	display: none;
+	color: red;
+}
+#escondido, #escondido2
+{
+	float: right;
+}
+.IS
+{
+
+}

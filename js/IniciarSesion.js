@@ -43,3 +43,26 @@ function checkCookie(){
 			window.location.href = "../UsuarioGeneral/IniciarSesion.html";
 	}
 }
+function validaciones_sesion()
+{
+	var nombre_usuario = document.getElementById("nombre_usuario").value;
+	var contrasena = document.getElementById("contrasena").value;
+	nombre_usuario_valor = verificar_contenido(nombre_usuario.value, "warning5");
+	contrasena_valor = verificar_contenido(contrasena.value, "warning6");
+}
+function verificar_contenido(elemento, label_desplegar)
+{
+	if (isEmpty(elemento)) {
+		document.getElementById(label_desplegar).style.display = "block";
+		return false;
+	}
+	else
+	{
+		document.getElementById(label_desplegar).style.display = "none";
+		return true;
+	}
+}
+
+function isEmpty(str) {
+    return (!str || 0 === str.length);
+}
