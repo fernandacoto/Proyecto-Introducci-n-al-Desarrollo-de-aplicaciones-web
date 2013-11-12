@@ -7,7 +7,7 @@
 <title>SAC</title>
 <link rel="stylesheet" type="text/css" href="../estilos/EstilosGenericos.css">
 <link rel="stylesheet" type="text/css" href="../estilos/EstilosCrearEvento.css">
-<script src="../js/EventosAdministrador.js"> </script>
+<script src="EventosAdministrador.js"> </script>
 
 
 <style type="text/css">
@@ -90,8 +90,8 @@
 
 		</div> <br> <br> <br>
 		
-		<div id="DivNuevoEvento">
-		<form id ="FormNuevoEvento">
+		<div id="DivNuevoEvento1">
+		<form id ="FormNuevoEvento" name="FormNuevoEvento" method="post" action="./php/insertarEvento.php">
 			<table id="TablaNuevoEvento" "align="center">
 					<tr>
 						<td>
@@ -107,16 +107,16 @@
 							<label class="label">Descripción<br></label>
 						</td>
 						<td>
-							<textarea id="InputDescripcionEvento"> </textarea>
+							<textarea id="InputDescripcionEvento" name="InputDescripcionEvento"> </textarea>
 						</td>
 					</tr>
 					
 					<tr>
 						<td>
-							<label class="label">Lugar<br></label>
+							<label class="label" >Lugar<br></label>
 						</td>
 						<td>
-							<input type="text" id="InputLugarEvento">
+							<input type="text" id="InputLugarEvento" name="InputLugarEvento">
 						</td>
 					</tr>
 
@@ -125,7 +125,7 @@
 							<label class="label">Fecha de inicio<br></label>
 						</td>
 						<td>
-							<input type="date" id="InputFechaInicioEvento">
+							<input type="date" id="InputFechaInicioEvento" name="InputFechaInicioEvento">
 						</td>
 					</tr>
 					
@@ -134,7 +134,7 @@
 							<label class="label">Fecha de fin<br></label>
 						</td>
 						<td>
-							<input type="date" id="InputFechaFinEvento">
+							<input type="date" id="InputFechaFinEvento" name="InputFechaFinEvento">
 						</td>
 					</tr>
 					
@@ -143,7 +143,7 @@
 							<label class="label">Plazo para propuesta<br></label>
 						</td>
 						<td>
-							<input type="text" id="InputPlazoPropuestaEvento">
+							<input type="text" id="InputPlazoPropuestaEvento" name="InputPlazoPropuestaEvento">
 						</td>
 						<td>
 							<select id="SelectTipoPlazo" name="SelectTipoPlazo">
