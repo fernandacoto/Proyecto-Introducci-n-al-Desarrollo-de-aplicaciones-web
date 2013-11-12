@@ -28,7 +28,7 @@
 			</div>
 		</div><br>
 		<div id="Registro">
-			<form id="Paso" method ="POST" action ="insertar_usuario.php" onSubmit = "return validar_paso_2()" enctype="multipart/form-data">
+			<form id="Paso" method ="POST" action ="./php/insertar_usuario.php" onSubmit = "return validar_paso_2()" enctype="multipart/form-data">
 				<fieldset>
 				<legend>Paso 1 de 2</legend>
 				<table id="tablaRegistro">
@@ -39,17 +39,15 @@
 						<label>Apellido 2</label><br><br>
 						<label>Correo electr&oacute;nico</label><br><br>
 						<label>Provincia</label><br><br>
-						<label>Cant&oacute;n</label><br><br>
-						<label>Distrito</label><br><br>
 						<label>Trabajo</label><br><br>
 						<label>Tipo de empresa</label><br><br>
 					</td>
 					<td>
-						<input type="text" id="Nombre"></input><div id="escondido"><label id="warning1">*Este es un campo requerido</label></div><br><br>
-						<input type="text" id="Apellido 1"></input><div id="escondido"><label id="warning2">*Este es un campo requerido</label></div><br><br>
-						<input type="text" id="Apellido 2"></input><div id="escondido"><label id="warning3">*Este es un campo requerido</label></div><br><br>
-						<input type="text" id="Email"></input><div id="escondido"><label id="warning4">*Este es un campo requerido</label></div><br><br>
-						<select class="selects" id="Provincia">
+						<input type="text" id="Nombre" name="Nombre"></input><div id="escondido"><label id="warning1">*Este es un campo requerido</label></div><br><br>
+						<input type="text" id="Apellido 1" name="Apellido1"></input><div id="escondido"><label id="warning2">*Este es un campo requerido</label></div><br><br>
+						<input type="text" id="Apellido 2" name="Apellido2"></input><div id="escondido"><label id="warning3">*Este es un campo requerido</label></div><br><br>
+						<input type="text" id="Email" name="Email"></input><div id="escondido"><label id="warning4">*Este es un campo requerido</label></div><br><br>
+						<select class="selects" id="Provincia" name="Provincias">
 						    <?php
 							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 							// Check connection
@@ -68,11 +66,11 @@
 							mysqli_close($con);
 							?>
 						</select><br><br>
-						<select class="selects" id="Trabajo">
+						<select class="selects" id="Trabajo" name="Trabajo">
 						  <option value="Privado">Privado</option>
 						  <option value="Público">Público</option>
 						</select><br><br>
-						<select class="selects" id="Tipo_Empresa">
+						<select class="selects" id="Tipo_Empresa" name="Tipo_Empresa">
 						  <option value="TI">TI</option>
 						  <option value="Banca y Finanzas">Banca y Finanzas</option>
 						  <option value="Educación">Educación</option>
@@ -98,8 +96,8 @@
 						<label>Confirmar contrase&ntilde;a</label>
 					</td>
 					<td>
-						<input type="text" id="nombre_usuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
-						<input type= "password" id="contrasenna"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
+						<input type="text" id="nombre_usuario" name="NombreUsuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
+						<input type= "password" id="contrasenna" name="Contrasena"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
 						<input type= "password" id="confirmacion"></input><div id="escondido"><label id="warning7">*Este es un campo requerido</label></div><div id="escondido2"><label id="warning8">Las contrase&ntilde;as no coninciden</label></div>
 					</td>
 					</tr>
