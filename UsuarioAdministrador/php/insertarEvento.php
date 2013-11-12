@@ -8,7 +8,7 @@
 	$SelectTipoPlazo= $_POST["SelectTipoPlazo"];
 	$InputFechaFinEvento= $_POST["InputFechaFinEvento"];
 
-	$con=mysqli_connect("localhost","murena","murena","jsanchez");
+	$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 	// Check connection
 	if (mysqli_connect_errno())
 	  {
