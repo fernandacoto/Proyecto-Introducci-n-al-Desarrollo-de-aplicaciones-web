@@ -20,3 +20,11 @@ table #tablaRegistro td
 {
 	width: auto;
 }
+.Registro_Paso2
+{
+	display: none;
+}
+.Registro_Paso_mostrar
+{
+	display: block;
+}

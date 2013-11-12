@@ -27,7 +27,7 @@
 				</ul>
 			</div>
 		</div><br>
-		<div id="Registo">
+		<div id="Registro">
 			<form id="Paso">
 				<fieldset>
 				<legend>Paso 1 de 2</legend>
@@ -70,6 +70,30 @@
 
 				</table><br>
 				<input type="button"id="BotonRegistro" value="Siguiente" onclick="validar_paso_1()"/>
+				</fieldset>
+			</form>
+		</div>
+		<!---->
+		<div id="Registro_Paso2" class="Registro_Paso2">
+			<form id="Paso">
+				<fieldset>
+				<legend  id="Registro">Paso 2 de 2</legend>
+				<table id="tablaRegistro">
+					<tr>
+					<td>
+						<label>Nombre de usuario</label><br><br>
+						<label>Contrase&ntilde;a</label><br><br>
+						<label>Confirmar contrase&ntilde;a</label>
+					</td>
+					<td>
+						<input type="text" id="nombre_usuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
+						<input type= "password" id="contrasenna"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
+						<input type= "password" id="confirmacion"></input><div id="escondido"><label id="warning7">*Este es un campo requerido</label></div><div id="escondido2"><label id="warning8">Las contrase&ntilde;as no coninciden</label></div>
+					</td>
+					</tr>
+
+				</table><br>
+				<input type="button" id="Finalizar" value="Finalizar" onclick="validar_paso_2()" />
 				</fieldset>
 			</form>
 		</div>

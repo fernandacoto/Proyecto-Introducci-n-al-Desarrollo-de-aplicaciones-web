@@ -10,7 +10,8 @@ function validar_paso_1()
 	email_valor = verificar_contenido(correo.value, "warning4");
 	if (nombre_valor && apellido1_valor && apellido2_valor && correo)
 	{
-		window.location.href = "../Registro/RegistroPaso2.html";
+		document.getElementById("Registro_Paso2").className = 'Registro_Paso_mostrar';
+		document.getElementById("Registro").style.display= 'none';
 	}
 }
 
