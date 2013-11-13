@@ -67,14 +67,13 @@
 				    echo $e->getMessage();
 				}
 			?>
-		</div>
-		<div>
-			<form id="Paso" method ="POST" enctype="multipart/form-data">
+			<div class="IS">
 				<label>Nombre de usuario</label>
-				<input type="text" id="nombre_usuario" name="NombreUsuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
+				<input type="text" id="nombre_usuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
 				<label>Contrase&ntilde;a</label>
-				<input type= "password" id="contrasenna" name="Contrasena"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
-			</form>
+				<input type= "password" id="contrasenna"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
+			    <input type="button"  value="Ingresar" onclick="validaciones_sesion()" />
+			</div>
 		</div>
 	</div>
 </body>
