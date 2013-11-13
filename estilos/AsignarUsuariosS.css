@@ -185,6 +185,18 @@ a:hover,a:active{
 	background-image: linear-gradient(top, rgba(146,214,94,1) 18%,rgba(255,255,255,0) 100%);
 }
 
+#btnAsignar
+{
+	margin-left: 20%;
+}
+
+#formularioAsignar
+{
+	display: inline-block;
+	padding-top:15px;
+	margin-top:1%;
+}
+
 .oculto{
 	display: none;
 }
