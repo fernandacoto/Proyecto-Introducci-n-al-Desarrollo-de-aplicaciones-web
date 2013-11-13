@@ -68,14 +68,12 @@
 				}
 			?>
 			<div class="IS">
-			<form id="Paso" method ="POST" action ="iniciar_sesion.php" onSubmit = "return validaciones_sesion()" enctype="multipart/form-data">
 				<label>Nombre de usuario</label>
-				<input type="text" id="nombre_usuario" name="NombreUsuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
+				<input type="text" id="nombre_usuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
 				<label>Contrase&ntilde;a</label>
-				<input type= "password" id="contrasenna" name="Contrasena"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
-			    <input type="submit" id="Finalizar" value="Ingresar" name="BotonEnviar" />
-			</form>
-		</div>
+				<input type= "password" id="contrasenna"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
+			    <input type="button"  value="Ingresar" onclick="validaciones_sesion()" />
+			</div>
 		</div>
 	</div>
 </body>
