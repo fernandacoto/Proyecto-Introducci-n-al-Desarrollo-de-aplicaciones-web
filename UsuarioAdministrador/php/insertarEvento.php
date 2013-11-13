@@ -8,7 +8,7 @@
 	$SelectTipoPlazo= $_POST["SelectTipoPlazo"];
 	$InputFechaFinEvento= $_POST["InputFechaFinEvento"];
 
-	$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
+	$con=mysqli_connect("localhost","murena","murena","jsanchez");
 	// Check connection
 	if (mysqli_connect_errno())
 	  {
@@ -27,6 +27,6 @@
     $result = mysqli_query($con, $query);
     echo $result;
    	mysqli_close($con);
-	//$url = 'http://localhost/murena/Mantenimiento.html'; 
-	//header( "Location: $url" );
+	$url = 'http://proyecto/Repositorio/UsuarioAdministrador/AdministradorEventos.php'; 
+	header( "Location: $url" );
 ?>
