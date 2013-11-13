@@ -39,7 +39,7 @@ function checkCookie(){
 	  alert("Identidad autorizada: " + username);
 	}
 	else{
-			window.alert("Usted no posee una sesión abierta, inicie sesión para continuar");
+			window.alert("Usted no posee una sesiÃ³n abierta, inicie sesiÃ³n para continuar");
 			window.location.href = "../UsuarioGeneral/IniciarSesion.html";
 	}
 }
@@ -49,44 +49,11 @@ function validaciones_sesion()
     contrasena = document.getElementById("contrasenna").value;
 	nombre_usuario_valor = verificar_contenido(nombre_usuario, "warning5");
 	contrasena_valor = verificar_contenido(contrasena, "warning6");
-	if (nombre_usuario_valor && contrasena_valor) 
-	{
-		/*AJAX*/
-    var xmlhttp;
-    if (window.XMLHttpRequest)
-    {// code for IE7+, Firefox, Chrome, Opera, Safari
-       xmlhttp=new XMLHttpRequest();
-    }
-    else
-    {// code for IE6, IE5
-      xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
-    }
-    xmlhttp.onreadystatechange=function()
-    {
-    if (xmlhttp.readyState==4 && xmlhttp.status==200)
-    { //codigo que agrega option
-	    try
-		{
-		// for IE earlier than version 8
-		
-			if(xmlhttp.responseText)
-			{
-				
-			}
-		}
-		catch (e)
-		{
-		 x.add(option,null);
-		}
-    }
-    }
-    xmlhttp.open("GET","insertar_tecnologias.php?nombre=" + document.getElementById("tecno").value ,true);
-    xmlhtt
-	}
 }
 function verificar_contenido(elemento, label_desplegar)
 {
 	if (isEmpty(elemento)) {
+		alert("Este campo es obligatorio");
 		document.getElementById(label_desplegar).style.display = "block";
 		return false;
 	}

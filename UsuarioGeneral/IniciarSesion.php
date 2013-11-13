@@ -68,11 +68,13 @@
 				}
 			?>
 			<div class="IS">
+				<form  action="./php/iniciar_sesion.php"  method="POST" >
 				<label>Nombre de usuario</label>
-				<input type="text" id="nombre_usuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
+				<input type="text" id="nombre_usuario" name="nombre_usuario"></input><div id="escondido"><label id="warning5">*Este es un campo requerido</label></div><br><br>
 				<label>Contrase&ntilde;a</label>
-				<input type= "password" id="contrasenna"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
-			    <input type="button"  value="Ingresar" onclick="validaciones_sesion()" />
+				<input type= "password" id="contrasenna" name="contrasenna"></input><div id="escondido"><label id="warning6">*Este es un campo requerido</label></div><br><br>
+			    <input type="submit"  value="Ingresar" name = "BotonEnviar " />
+			    </form>
 			</div>
 		</div>
 	</div>
