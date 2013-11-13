@@ -52,9 +52,8 @@
 					{
 						$IdSesion = $_GET['IdSesion'];
 					}
-					$query2 = sprintf("SELECT U.NombrePersona, U.NombreUsuario, U.CorreoElectronico FROM sac_usuario U inner join sac_usuarioxsesion US on U.IdUsuario US.FK_IdUsuario where US.FK_IdSesion = %s", intval($IdSesion));
+					$query2 = sprintf("SELECT U.NombrePersona, U.NombreUsuario, U.CorreoElectronico FROM sac_usuario U inner join sac_usuarioxsesion US on U.IdUsuario = US.FK_IdUsuario where US.FK_IdSesion = %s", $IdSesion);
 					$result1 = mysqli_query($con,$query2);
-					$cont = 0;
 					while($row1 = mysqli_fetch_array($result1))
 					{
 						echo '<tr>';
@@ -62,16 +61,17 @@
 						echo "<th>" . $row1['NombreUsuario'] . "</th>";
 						echo "<th>" . $row1['CorreoElectronico'] . "</th>";
 						echo "</tr>";
-						$cont = $cont + 1;
 					}
 					mysqli_close($con);
 					?>
 				</table>
 			</div>
-			<div >
-				<form id="formularioAsignar">
+			<div id="dvForm" align= "center">
+				<form id="formularioAsignar" method="post" action="./php/asignarUsuario.php">
 				<fieldset>
+				<legend id="legenda">Asignar</legend>
 				<div id="col1">
+				<input type="hidden" value="<?php if(isset($_GET['IdSesion'])) {echo  $_GET['IdSesion'];}?>" name="IdSesion">
 				<text id="usuarios">Usuarios:</text>
 				<?php
 					$con=mysqli_connect("localhost","root","wcuadra", "jsanchez");
@@ -80,18 +80,23 @@
 					{
 						echo "Failed to connect to MySQL: " . mysqli_connect_error();
 					}
-					$result2 = mysqli_query($con,"SELECT * FROM sac_usuario");
-					echo '<select id="usuariosDrop" name="UsuariosDrop">';
+					$IdSesion;
+					if(isset($_GET['IdSesion']))
+					{
+						$IdSesion = $_GET['IdSesion'];
+					}
+					$result2 = mysqli_query($con,"SELECT * FROM sac_usuario U inner join sac_usuarioxsesion US on  U.IdUsuario = US.FK_IdUsuario where US.FK_IdSesion != %s", $IdSesion);
+					echo '<select id="usuariosDrop" name="usuariosDrop">';
 					echo '<option value="seleccione">--Seleccione uno--</option>';
 					while($row2 = mysqli_fetch_array($result2))
 					{
-						echo '<option value=' . $row2['IdUsuario'] .'>' . $row2['NombrePersona'] .'</option>';
+						echo '<option value=' . $row2['IdUsuario'] .'>' . $row2['NombrePersona'] . '</option>';
 					}
 					echo '</select>';
 					mysqli_close($con);
 				?>
-				</div>
-				<input type="button" id="Guardar" value="Guardar" onclick="validar_campos()" class="TipoBoton3" />
+				</div><br><br>
+				<input type="button" id="btnAsignar" value="Asignar Usuario" onclick="validarForm()" class="TipoBoton3" />
 			    </fieldset>
 			    </form>
 			</div>
