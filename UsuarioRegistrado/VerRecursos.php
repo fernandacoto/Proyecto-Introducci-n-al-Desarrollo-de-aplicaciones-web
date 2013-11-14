@@ -28,7 +28,25 @@
 			</div>
 		</div> <br>
 		<label class="Titulo1">Detalles de sesi&oacute;n &nbsp;</label>
-		<label class="Titulo2">Sesion1</label><br><br>
+		<?php
+            
+                //$idSesion =  $_GET["idSesion"];
+		        $idSesion = 1;
+                $con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
+                
+                // Check connection
+                if (mysqli_connect_errno($con))
+                  {
+                  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+                  }
+                $result = mysqli_query($con, "SELECT * FROM SAC_Sesion WHERE IdSesion = '".$idSesion."'");
+                while($row = mysqli_fetch_array($result))
+                  {
+                    echo "<label class=\"Titulo2\">".$row['NombreSesion']."</label><br><br>";
+                  }
+                mysqli_close($con);
+            ?>
+		
 		<div id="col1" width="20%">
 			<label class="Titulo2">Menu
 			</label>
@@ -63,32 +81,19 @@
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
                   }
                 $result = mysqli_query($con, "SELECT * FROM SAC_Recurso WHERE FK_IdSesion = '".$idSesion."'");
-                
+                echo "<table align=\"center\"><thead>
+					<tr>
+					<th><label>Recurso</label></th>
+					<th><label>Ver</label></th>
+					</tr>
+				</thead><tbody>";
                 while($row = mysqli_fetch_array($result))
                   {
-                    echo "good!"
+                    echo "<tr><th><label>".$row['DetalleRecurso']."</label></th><th><button class=\"TipoBoton2\" onclick=\"abrirRecurso(".$row['IdRecurso'].",".$row['TipoRecurso'].")\"><img src=\"../multimedia/BotonVerDetalle.png\" height=\"30\" width=\"30\"></button></th></tr>";
                   }
-                
+                echo "</tbody></table><br>";
                 mysqli_close($con);
             ?>
-			<table align="center">
-			<thead>
-				<tr>
-				<th><label>Recurso</label></th>
-				<th><label>Tipo</label></th>
-				<th><label>Usuario</label></th>
-				<th><label>Ver</label></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				<th><label>Recurso 1</label></th>
-				<th><label>URL</label></th>
-				<th><label>usuario 1</label></th>
-				<th><button id="ver" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></button></th>	
-				</tr>
-			</tbody>
-			</table><br>
 		</div>
 	</div>
 </body>
