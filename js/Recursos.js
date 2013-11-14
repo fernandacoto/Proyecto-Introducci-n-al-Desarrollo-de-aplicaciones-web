@@ -61,3 +61,17 @@ function eliminarRecurso(Id_recurso)
     
     xmlhttp.send();
 }
+function validarExtension()
+{
+	var file = document.getElementById('arch');
+
+    var ext = file.value.match(/\.([^\.]+)$/)[1];
+    switch(ext)
+    {
+        case 'pdf':
+            break;
+        default:
+            alert('Formato de imagen no aceptado');
+			file.value = "";
+    }
+}

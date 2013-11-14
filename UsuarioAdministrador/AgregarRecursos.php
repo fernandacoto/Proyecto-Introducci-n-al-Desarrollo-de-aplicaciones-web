@@ -54,26 +54,6 @@
 		</div><br>
 		<div id="col2" width="80%">
 			<input type="button" id="Nuevo_recurso" value="Nuevo recurso" onclick="mostrar_formulario()"  class="TipoBoton1" /><br><br>
-			<!--table align="center">
-			<thead>
-				<tr>
-				<th><label>Recurso</label></th>
-				<th><label>Tipo</label></th>
-				<th><label>Usuario</label></th>
-				<th><label>Eliminar</label></th>
-				<th><label>Ver</label></th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-				<th><label>Recurso 1</label></th>
-				<th><label>URL</label></th>
-				<th><label>usuario 1</label></th>
-				<th><button id="eliminar" class="TipoBoton2"><img src="../multimedia/BotonEliminar.png" height="30" width="30"></button></th>
-				<th><button id="ver" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></button></th>	
-				</tr>
-			</tbody>
-			</table><br-->
 			<?php
             
                 //$idSesion =  $_GET["idSesion"];
@@ -109,12 +89,16 @@
 				</select><br><br>
 				<input type="button" id="continuar" onclick="mostrar_subform()" value="Continuar" class="TipoBoton1"><br>
 				<div id="escondido1">
-					<label>Cargar archivo</label><input type="file"/>
-					<input type="button" class="TipoBoton3" id="Guardar" value="Guardar" onclick="guardar()">
+				<form action="./php/insertar_pdf.php"  method="POST" >
+					<label>Cargar archivo</label><input type="file" onChange="validarExtension()" name="pdf" id="arch" />
+					<input type="submit" class="TipoBoton3" id="Guardar" value="Guardar"  name="BotonEnviar">
+				</form>
 				</div><br>
 				<div id="escondido2">
-					<label>Digite la url:</label><input type="text" id="txt_url" /><div id="warning1"><label>No se digit&oacute; la url</label></div>
-					<input type="button" class="TipoBoton3" id="Guardar" value="Guardar" onclick="guardar()">
+				<form action="./php/insertar_url.php"  method="POST" >
+					<label>Digite la url:</label><input type="text" id="txt_url" name="url" /><div id="warning1"><label>No se digit&oacute; la url</label></div>
+					<input type="submit" class="TipoBoton3" id="Guardar" value="Guardar" name="BotonEnviar">
+			    </form>
 				</div>
 			</div>
 		</div>
