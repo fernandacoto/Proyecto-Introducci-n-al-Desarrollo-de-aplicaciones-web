@@ -6,7 +6,6 @@ function validarForm() {
     alert('No has escogido el usuario a asignar'); 
     return false; 
   }else{
-	alert(texto);
 	document.forms["formularioAsignar"].submit();	
 	}
 

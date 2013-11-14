@@ -30,6 +30,27 @@
 				<span class="auto-style1">
 				<label class="Titulo1"><br>Asignar Usuarios<br></label></span><br>
 			</div>
+			<div id="col1" width="20%">
+			<label class="Titulo2">Menu
+			</label>
+			<table border="0">
+			<tr>
+				<td><a href="default.asp">1.Ponentes</a></td>
+			</tr>
+			<tr>
+				<td><a href="default.asp">2.Comentarios</a></td>
+			</tr>
+			<tr>
+				<td><a href="default.asp">3.Preguntas</a></td>
+			</tr>
+			<tr>
+				<td><a href="default.asp">4.Notas</a></td>
+			</tr>
+			<tr>
+				<td><a href="default.asp">5.Recursos</a></td>
+			</tr>
+			</table>
+		</div><br>
 			
 			<div id="Tabla">
 				<table align="center">
@@ -95,7 +116,7 @@
 					echo '</select>';
 					mysqli_close($con);
 				?>
-				</div><br><br>
+				</div><br><br><br><br>
 				<input type="button" id="btnAsignar" value="Asignar Usuario" onclick="validarForm()" class="TipoBoton3" />
 			    </fieldset>
 			    </form>
