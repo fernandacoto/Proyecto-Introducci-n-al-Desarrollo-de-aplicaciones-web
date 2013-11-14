@@ -9,7 +9,7 @@
 	width: 80%;
 }
 
-#formulario_recurso, #escondido1, #escondido2
+#formulario_pregunta, #escondido1, #escondido2, #formulario_respuesta
 {
 	display: none;
 }
