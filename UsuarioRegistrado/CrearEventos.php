@@ -1,4 +1,4 @@
-﻿<html>
+<html>
 
 <head>
 <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
@@ -47,24 +47,30 @@
 						<tr>
 					</thead>
 					<tbody>
-						<tr>
-							<th>Hackaton 2013</th>
-							<th>Backcountry</th>
-							<th>01/11/2013</th>
-							<th>05/11/2013</th>
-							<th> <button id="favorito" class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"></button> </th>
-							<th><button id="ver_detalle" onclick="location.href='./VerHilos.html'" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></button></th>
-						</tr>
-						
-						<tr>
-							<th>Semana Compu</th>
-							<th>TEC</th>
-							<th>11/11/2013</th>
-							<th>13/11/2013</th>
-							<th> <button id="favorito" class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"></button> </th>
-							<th><button id="ver_detalle" onclick="location.href='./VerHilos.html'" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></button></th>
-						</tr>
+						<?php
+							$con=mysqli_connect("localhost","murena","murena","jsanchez");
+							// Check connection
+							if (mysqli_connect_errno())
+							  {
+							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+							  }
+							
+							$result = mysqli_query($con,"SELECT * FROM `sac_evento`");
+							while($row = mysqli_fetch_array($result)){
+								$idEvento = $row['IdEvento'];	
+								echo '<tr>';
+								echo '<th>'. $row['NombreEvento'] .'</th>';
+								echo '<th>'. $row['LugarEvento'] .'</th>';
+								echo '<th>'. $row['FechaInicioEvento'] .'</th>';
+								echo '<th>'. $row['FechaFinEvento'] .'</th>';			
+								echo '<th> <button id="favorito" class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"></button> </th>';
+								echo '<th> <a  href="./VerHilos.php?idProyecto='.$idEvento.'"> <img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></a></th>';
+								echo '</tr>';
+							}					
+							mysqli_close($con);
+						?>
 
+						
 					</tbody>
 				</table>
 
