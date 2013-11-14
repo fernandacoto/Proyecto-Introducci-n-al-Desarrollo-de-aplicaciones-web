@@ -6,6 +6,7 @@
 <title>SAC</title>
 <link rel="stylesheet" type="text/css" href="../estilos/EstilosGenericos.css">
 <link rel="stylesheet" type="text/css" href="../estilos/AgregarRecursos.css">
+<script type="text/javascript" src="../js/VerRecursos.js"></script>
 </head>
 
 <body>
@@ -89,7 +90,7 @@
 				</thead><tbody>";
                 while($row = mysqli_fetch_array($result))
                   {
-                    echo "<tr><th><label>".$row['DetalleRecurso']."</label></th><th><button class=\"TipoBoton2\" onclick=\"abrirRecurso(".$row['IdRecurso'].",".$row['TipoRecurso'].")\"><img src=\"../multimedia/BotonVerDetalle.png\" height=\"30\" width=\"30\"></button></th></tr>";
+                    echo "<tr><th><label>".$row['DetalleRecurso']."</label></th><th><input type =\"button\" onclick=\"abrirRecurso('".$row['TipoRecurso']."','".$row['DetalleRecurso']."')\" value =\"Ver\"></input></th></tr>";
                   }
                 echo "</tbody></table><br>";
                 mysqli_close($con);
