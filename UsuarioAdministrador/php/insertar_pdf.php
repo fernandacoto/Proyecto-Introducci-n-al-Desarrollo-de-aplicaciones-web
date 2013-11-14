@@ -10,7 +10,7 @@ if (isset($_POST["BotonEnviar"]))
 	foreach($_FILES as $arch)
 		{
 			move_uploaded_file($arch["tmp_name"],
-			"../uploads/" . $arch["name"]);
+			"../../uploads/" . $arch["name"]);
 			mysqli_query($con,"INSERT INTO SAC_Recurso (DetalleRecurso, TipoRecurso) VALUES ('".$arch["name"]."', '2')");
 		}
 	header ("Location: http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioAdministrador/AgregarRecursos.php");

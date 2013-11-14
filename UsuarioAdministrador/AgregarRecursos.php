@@ -89,7 +89,7 @@
 				</select><br><br>
 				<input type="button" id="continuar" onclick="mostrar_subform()" value="Continuar" class="TipoBoton1"><br>
 				<div id="escondido1">
-				<form action="./php/insertar_pdf.php"  method="POST" >
+				<form action="./php/insertar_pdf.php"  method="POST"  enctype="multipart/form-data">
 					<label>Cargar archivo</label><input type="file" onChange="validarExtension()" name="pdf" id="arch" />
 					<input type="submit" class="TipoBoton3" id="Guardar" value="Guardar"  name="BotonEnviar">
 				</form>
