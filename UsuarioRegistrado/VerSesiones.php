@@ -36,19 +36,36 @@
 				<th><label>Nombre</label></th>
 				<th><label>Hora de inicio</label></th>
 				<th><label>Hora de finalizaci&oacute;n</label></th>
-				<th><label>Expositor</label></th>
 				<th><label>Tipo de sesi&oacute;n</label></th>
 				<th><label>Sal&oacute;n</label></th>
+				<th><label>Detalle</label></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-				<th><label>Sesi&oacute;n 1</label></th>
-				<th><label>8:00am</label></th>
-				<th><label>12:00md</label></th>
-				<th><label>Juan S.</label></th>
-				<th><label>Taller</label></th>
-				<th><label>B307</label></th>
+				<?php
+						$con=mysqli_connect("localhost","murena","murena","jsanchez");
+						// Check connection
+						if (mysqli_connect_errno())
+						  {
+						  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+						  }
+						$idHilo;
+						if(isset($_GET['idHilo'])) {
+							$idHilo=  $_GET["idHilo"];
+						}
+						$query  =  sprintf("SELECT S.NombreSesion, S.HoraInicioSesion, S.HoraFinSesion, T.NombreTipoSesion, Sa.DetalleSalon FROM sac_sesion S INNER JOIN sac_tiposesion T Inner Join sac_salon Sa on S.FK_idTipoSesion = T.idTipoSesion and S.FK_idSalon = Sa.IdSalon where S.FK_IdHilo = %s;",$idHilo);			
+						$result = mysqli_query($con,$query);  
+						while($row = mysqli_fetch_array($result)){	
+							echo '<tr>';
+							echo '<th>'. $row['NombreSesion'] .'</th>';
+							echo '<th>'. $row['HoraInicioSesion'] .'</th>';
+							echo '<th>'. $row['HoraFinSesion'] .'</th>';
+							echo '<th>'. $row['NombreTipoSesion'] .'</th>';
+							echo '<th>'. $row['DetalleSalon'] .'</th>';
+							echo '<th> <a  href="./CrearPregunta.php?idHilo='.$idHilo.'"> <img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></a></th>';
+						}					
+						mysqli_close($con);
+					?>
 			</tbody>
 			</table><br>
 	</div>
