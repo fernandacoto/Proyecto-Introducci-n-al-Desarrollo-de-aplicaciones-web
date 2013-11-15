@@ -41,19 +41,39 @@
 			</label>
 			<table border="0">
 			<tr>
-				<td><a href="default.asp">1.Ponentes</a></td>
+				<td><a href="#">1.Ponentes</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">2.Comentarios</a></td>
+				<td><a href="./CrearComentario.html">2.Comentarios</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">3.Preguntas</a></td>
+				<td>
+				<?php 
+				echo '<a href="http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioRegistrado/CrearPregunta.php?idSesion="';
+			      $idSesion;
+			      if(isset($_GET['idSesion'])) {
+			      
+			       $idSesion =  $_GET['idSesion'];
+			       echo $idSesion;
+			      }
+				  echo '" >5.Preguntas </a>';
+				?></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">4.Notas</a></td>
+				<td><a href="./CrearNota.html">4.Notas</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">5.Recursos</a></td>
+				<td>
+				<?php 
+				echo '<a href="http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioRegistrado/VerRecursos.php?idSesion="';
+			      $idSesion;
+			      if(isset($_GET['idSesion'])) {
+			      
+			       $idSesion =  $_GET['idSesion'];
+			       echo $idSesion;
+			      }
+				  echo '" >5.Recursos </a>';
+				?></td>
 			</tr>
 			</table>
 		</div><br>
@@ -76,17 +96,17 @@
 					{
 						echo "Failed to connect to MySQL: " . mysqli_connect_error();
 					}
-					$IdSesion;
-					if(isset($_GET['IdSesion']))
+					$idSesion;
+					if(isset($_GET['idSesion']))
 					{
-						$IdSesion = $_GET['IdSesion'];
+						$idSesion = $_GET['idSesion'];
 					}
 					$IdUsuario;
 					if(isset($_GET['IdUsuario']))
 					{
 						$IdUsuario = $_GET['IdUsuario'];
 					}
-					$query = sprintf("SELECT * FROM SAC_Pregunta P where P.FK_IdSesion = %s and P.FK_IdUsuario = %s", $IdSesion, $IdUsuario);
+					$query = sprintf("SELECT * FROM SAC_Pregunta P where P.FK_IdSesion = %s and P.FK_IdUsuario = %s", $idSesion, $IdUsuario);
 					$result2 = mysqli_query($con,$query);
 					
 					while($row2 = mysqli_fetch_array($result2))

@@ -20,7 +20,7 @@
 				<ul>
 					<li><a href="./AsignarPermisos.php">Permisos</a></li>
 					<li><a href="./AsignarUsuarios.php">Usuarios</a></li>
-					<li><a href="./CrearEventos.hphp">Eventos</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
 					<li><a href="./CrearTipoSesion.php">Tipos de Sesión</a></li>
 					<li><a href="./CrearSalon.html">Salones</a></li>				
 					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
@@ -35,19 +35,29 @@
 			</label>
 			<table border="0">
 			<tr>
-				<td><a href="default.asp">1.Ponentes</a></td>
+				<td><a href="#">1.Ponentes</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">2.Comentarios</a></td>
+				<td><a href="#">2.Comentarios</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">3.Preguntas</a></td>
+				<td><a href="#">3.Preguntas</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">4.Notas</a></td>
+				<td><a href="#">4.Notas</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">5.Recursos</a></td>
+				<td>
+				<?php 
+				echo '<a href="http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioAdministrador/AgregarRecursos.php?idSesion="';
+			      $idSesion;
+			      if(isset($_GET['idSesion'])) {
+					
+			       $idSesion=  $_GET['idSesion'];
+			       echo $idSesion;
+			      }
+				  echo '" >5.Recursos <a><td>'
+				?></td>
 			</tr>
 			</table>
 		</div><br>
@@ -95,7 +105,7 @@
 				<input type="hidden" value="<?php if(isset($_GET['IdSesion'])) {echo  $_GET['IdSesion'];}?>" name="IdSesion">
 				<text id="usuarios">Usuarios:</text>
 				<?php
-					$con=mysqli_connect("localhost","root","wcuadra", "jsanchez");
+					$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 					// Check connection
 					if (mysqli_connect_errno())
 					{
@@ -106,7 +116,7 @@
 					{
 						$IdSesion = $_GET['IdSesion'];
 					}
-					$result2 = mysqli_query($con,"SELECT * FROM sac_usuario U inner join sac_usuarioxsesion US on  U.IdUsuario = US.FK_IdUsuario where US.FK_IdSesion != %s", $IdSesion);
+					$result2 = mysqli_query($con,"SELECT * FROM SAC_Usuario U inner join SAC_UsuarioXSesion US on  U.IdUsuario = US.FK_IdUsuario where US.FK_IdSesion != %s", $IdSesion);
 					echo '<select id="usuariosDrop" name="usuariosDrop">';
 					echo '<option value="seleccione">--Seleccione uno--</option>';
 					while($row2 = mysqli_fetch_array($result2))

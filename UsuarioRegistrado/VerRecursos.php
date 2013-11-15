@@ -31,8 +31,7 @@
 		<label class="Titulo1">Detalles de sesi&oacute;n &nbsp;</label>
 		<?php
             
-                //$idSesion =  $_GET["idSesion"];
-		        $idSesion = 1;
+                $idSesion =  $_GET["idSesion"];
                 $con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
                 
                 // Check connection
@@ -53,19 +52,39 @@
 			</label>
 			<table border="0">
 			<tr>
-				<td><a href="default.asp">1.Ponentes</a></td>
+				<td><a href="#">1.Ponentes</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">2.Comentarios</a></td>
+				<td><a href="./CrearComentario.html">2.Comentarios</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">3.Preguntas</a></td>
+				<td>
+				<?php 
+				echo '<a href="http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioRegistrado/CrearPregunta.php?idSesion="';
+			      $idSesion;
+			      if(isset($_GET['idSesion'])) {
+			      
+			       $idSesion =  $_GET['idSesion'];
+			       echo $idSesion;
+			      }
+				  echo '" >3.Preguntas <a>';
+				?></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">4.Notas</a></td>
+				<td><a href="./CrearNota.html">4.Notas</a></td>
 			</tr>
 			<tr>
-				<td><a href="default.asp">5.Recursos</a></td>
+				<td>
+				<?php 
+				echo '<a href="http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioRegistrado/VerRecursos.php?idSesion="';
+			      $idSesion;
+			      if(isset($_GET['idSesion'])) {
+			      
+			       $idSesion =  $_GET['idSesion'];
+			       echo $idSesion;
+			      }
+				  echo '" >5.Recursos <a>';
+				?></td>
 			</tr>
 			</table>
 		</div><br>
@@ -73,7 +92,11 @@
 		<?php
             
                 //$idSesion =  $_GET["idSesion"];
-		        $idSesion = 1;
+		        //$idSesion = 1;
+		        if(isset($_GET['idSesion'])) {
+					
+			       $idSesion=  $_GET['idSesion'];
+			      }
                 $con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
                 
                 // Check connection
@@ -81,7 +104,7 @@
                   {
                   echo "Failed to connect to MySQL: " . mysqli_connect_error();
                   }
-                $result = mysqli_query($con, "SELECT * FROM SAC_Recurso WHERE FK_IdSesion = '".$idSesion."'");
+                $result = sprintf($con, "SELECT * FROM SAC_Recurso WHERE FK_IdSesion = %s",$idSesion);
                 echo "<table align=\"center\"><thead>
 					<tr>
 					<th><label>Recurso</label></th>
