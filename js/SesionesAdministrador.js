@@ -4,24 +4,18 @@ function mostrar_formulario () {
 
 function validar_campos()
 {
-	sesion = document.getElementById("nombre_sesion");
+	sesion = document.getElementById("nombresesion");
 	descripcion = document.getElementById("descripcion");
-	hi = document.getElementById("HI");
-	hf = document.getElementById("HF");
+	hi = document.getElementById("HoraInicio");
+	hf = document.getElementById("HoraFin");
 	sesion_valor = verificar_contenido(sesion.value, "warning1");
 	descripcion_valor = verificar_contenido(descripcion.value, "warning2");
 	hi_valor = verificar_contenido(hi.value, "warning3");
 	hf_valor = verificar_contenido(hf.value, "warning4");
     if (sesion_valor && descripcion_valor && hi_valor && hf_valor)
     {
-    	//Ir a insertar a la BD despues:
-    	sesion.value = "";
-    	descripcion.value = "";
-    	hi.value = "";
-    	hf.value = "";
-    	document.getElementById("formularionuevasesion").style.display = "none";
+		document.forms["formularionuevasesion"].submit();	
     }
-
 }
 
 function verificar_contenido(elemento, label_desplegar)
