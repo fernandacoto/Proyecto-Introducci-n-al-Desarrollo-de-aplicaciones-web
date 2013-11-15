@@ -6,14 +6,14 @@
 	echo $IdSesion;
 	echo $IdUsuario;
 	echo $IdPregunta;
-	$con=mysqli_connect("localhost","root","wcuadra","jsanchez");
+	$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 	// Check connection
 	if (mysqli_connect_errno())
 	  {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	  }
 	  echo $Respuesta;
-	$query = sprintf("UPDATE `sac_pregunta` SET `Respuesta`= '%s' where `IdPregunta` = %s",
+	$query = sprintf("UPDATE SAC_Pregunta SET 'Respuesta'= '%s' where 'IdPregunta' = %s",
     $Respuesta,
 	intval($IdPregunta)
     );
@@ -21,7 +21,7 @@
     $result = mysqli_query($con, $query);
     echo $result;
    	mysqli_close($con);
-	$url = 'http://localhost:8080/SAC/UsuarioRegistrado/CrearPregunta.php?IdSesion='.$IdSesion.'&IdUsuario='.$IdUsuario; 
+	$url = 'http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioRegistrado/CrearPregunta.php?IdSesion='.$IdSesion.'&IdUsuario='.$IdUsuario; 
 	header( "Location: $url" );
 ?>
 

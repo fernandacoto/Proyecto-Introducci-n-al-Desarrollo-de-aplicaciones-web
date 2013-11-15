@@ -10,7 +10,7 @@
 <script>
 	function ir_Resp(idPregunta)
 {
-	window.location = 'http://localhost:8080/SAC/UsuarioRegistrado/Respuesta.php?IdPregunta=' + idPregunta;
+	window.location = 'http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioRegistrado/Respuesta.php?IdPregunta=' + idPregunta;
 }
 </script>
 </head>
@@ -26,8 +26,8 @@
 		<div id="Contenido">
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
-					<li><a href="./PerfilUsuario.html">Perfil</a></li>
-					<li><a href="./CrearEventos.html">Eventos</a></li>
+					<<li><a href="./PerfilUsuario.html">Perfil</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
 					<li><a href="./VerTipoSesiones.html">Tipos de Sesión</a></li>
 					<li><a href="./VerSalones.html">Salones</a></li>
 					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
@@ -70,7 +70,7 @@
 			</thead>
 			<tbody>
 				<?php
-					$con=mysqli_connect("localhost","root","wcuadra", "jsanchez");
+					$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 					// Check connection
 					if (mysqli_connect_errno())
 					{
@@ -86,7 +86,7 @@
 					{
 						$IdUsuario = $_GET['IdUsuario'];
 					}
-					$query = sprintf("SELECT * FROM sac_pregunta P where P.FK_IdSesion = %s and P.FK_IdUsuario = %s", $IdSesion, $IdUsuario);
+					$query = sprintf("SELECT * FROM SAC_Pregunta P where P.FK_IdSesion = %s and P.FK_IdUsuario = %s", $IdSesion, $IdUsuario);
 					$result2 = mysqli_query($con,$query);
 					
 					while($row2 = mysqli_fetch_array($result2))

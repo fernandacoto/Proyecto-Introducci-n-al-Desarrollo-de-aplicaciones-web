@@ -30,7 +30,7 @@
 				<label class="Titulo1">Hilos<br></label></span><br>
 			</div>
 			<div id = "Botones">
-				<button onclick="location.href='./CrearEventos.html'" class="TipoBoton1">Volver</button><br>
+				<button onclick="location.href='./CrearEventos.php'" class="TipoBoton1">Volver</button><br>
 			</div>
 			
 			<div id="Tabla" class="Tabla">
@@ -54,7 +54,7 @@
 							if(isset($_GET['idProyecto'])) {
 								$idEvento =  $_GET["idProyecto"];
 							}
-							$result = mysqli_query($con,'SELECT * FROM `sac_hilo` where FK_IdEvento ='.$idEvento.';');
+							$result = mysqli_query($con,'SELECT * FROM SAC_Hilo where FK_IdEvento ='.$idEvento.';');
 							while($row = mysqli_fetch_array($result)){
 								$idHilo = $row['IdHilo'];	
 								echo '<tr>';

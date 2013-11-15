@@ -54,7 +54,7 @@
 							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 							  }
 							
-							$result = mysqli_query($con,"SELECT * FROM `sac_evento`");
+							$result = mysqli_query($con,"SELECT * FROM SAC_Evento");
 							while($row = mysqli_fetch_array($result)){
 								$idEvento = $row['IdEvento'];	
 								echo '<tr>';
