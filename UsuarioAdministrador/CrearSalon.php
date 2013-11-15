@@ -6,7 +6,7 @@
 <title>SAC</title>
 <link rel="stylesheet" type="text/css" href="../estilos/EstilosGenericos.css">
 <link rel="stylesheet" type="text/css" href="../estilos/TipoSesion.css">
-<script src="../js/TipoSesion.js"> </script>
+<script src="../js/Salon.js"> </script>
 </head>
 
 <body>
@@ -41,12 +41,27 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-				<th><label>Salon 1</label></th>
-				<th><label>Capacidad 90 personas</label></th>
-				<th><button id="editar" onclick="mostrar_formulario()" class="TipoBoton2"><img src="../multimedia/BotonEditar.png" height="30" width="30"></button></th>
-				<th><button id="eliminar" class="TipoBoton2"><img src="../multimedia/BotonEliminar.png" height="30" width="30"></button></th>	
-				</tr>
+				<?php
+					$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
+					
+					if (mysqli_connect_errno())
+					{
+						echo "Failed to connect to MySQL: " . mysqli_connect_error();
+					}
+							
+					$result = mysqli_query($con,"SELECT * FROM `SAC_Salon`");
+					
+					while($row = mysqli_fetch_array($result))
+					{	
+						echo '<tr>';
+						echo '<th>'. $row['NombreSalon'] .'</th>';
+						echo '<th>'. $row['DescripcionSalon'] .'</th>';
+						echo '<th><button id='.'"'.$row["IdSalon"].'"'.' class="TipoBoton2" onclick="mostrarId()"><img src="../multimedia/BotonEditar.png" height="30" width="30"></button></th>';
+						echo '<th><button id='.'"'.$row["IdSalon"].'"'.' class="TipoBoton2" onclick="borrarSalon(this.id)"><img src="../multimedia/BotonEliminar.png" height="30" width="30"></button></th>';	
+						echo '</tr>';
+					}					
+					mysqli_close($con);
+				?>	
 			</tbody>
 			</table><br>
 			<div >
@@ -54,9 +69,9 @@
 				<fieldset>
 				<div id="col1">
 				<label>Nombre </label>
-				<input type="text" id="Tipo"></input><div id="escondido"><label id="warning1">*Este es un campo requerido</label></div><br>
+				<input type="text" id="NombreSalon"></input><div id="escondido"><label id="warning1">*Este es un campo requerido</label></div><br>
 				<label>Descripci&oacute;n</label><br>
-				<textarea id="descripcion"></textarea><div id="escondido"><label id="warning2">*Este es un campo requerido</label></div><br><br>
+				<textarea id="DescripcionSalon"></textarea><div id="escondido"><label id="warning2">*Este es un campo requerido</label></div><br><br>
 				</div>
 				<input type="button" id="Guardar" value="Guardar" onclick="validar_campos()" class="TipoBoton3" />
 			    </fieldset>
