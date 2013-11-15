@@ -7,14 +7,21 @@
 	  {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	  }
-	$query = sprintf("SELECT IdUsuario FROM SAC_Usuario WHERE NombreUsuario =  '%s' AND Contrasena =  '%s'",
+	$query = sprintf("SELECT * FROM SAC_Usuario WHERE NombreUsuario =  '%s' AND Contrasena =  '%s'",
 	$usuario,
    $password);
     $result = mysqli_query($con, $query);
    	$row = mysqli_fetch_array($result);
    	mysqli_close($con);
    	if( $row['IdUsuario'] != NULL){
-		$url = 'http://ic-itcr.ac.cr/~fcoto/SAC/Registro/RegistroPaso1.php'; 
+   		if($row['FK_IdTipoUsuario'] == 1)
+   		{
+   			$url = 'http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioAdministrador/CrearEventos.php'; 
+   		}
+   		if($row['FK_IdTipoUsuario'] == 2)
+   		{
+   			$url = 'http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioRegistrado/CrearEventos.php'; 
+   		}
 		header( "Location: $url" );
 		session_start();
 		setcookie('usuario', $row['IdUsuario'], time()+86000);
@@ -22,7 +29,7 @@
 	    $_SESSION['logged_id']=True;
 
    	}else{
-		$url = 'http://ic-itcr.ac.cr'; 
+		$url = 'http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioGeneral/IniciarSesion.php'; 
 		header( "Location: $url" );
    	}
 ?>

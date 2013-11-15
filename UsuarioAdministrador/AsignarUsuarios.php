@@ -18,10 +18,10 @@
 		<div id="Contenido">
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
-					<li><a href="./AsignarPermisos.html">Permisos</a></li>
-					<li><a href="./AsignarUsuarios.html">Usuarios</a></li>
-					<li><a href="./CrearEventos.html">Eventos</a></li>
-					<li><a href="./CrearTipoSesion.html">Tipos de Sesión</a></li>
+					<li><a href="./AsignarPermisos.php">Permisos</a></li>
+					<li><a href="./AsignarUsuarios.php">Usuarios</a></li>
+					<li><a href="./CrearEventos.hphp">Eventos</a></li>
+					<li><a href="./CrearTipoSesion.php">Tipos de Sesión</a></li>
 					<li><a href="./CrearSalon.html">Salones</a></li>				
 					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
 				</ul>
@@ -30,6 +30,27 @@
 				<span class="auto-style1">
 				<label class="Titulo1"><br>Asignar Usuarios<br></label></span><br>
 			</div>
+			<div id="col1" width="20%">
+			<label class="Titulo2">Menu
+			</label>
+			<table border="0">
+			<tr>
+				<td><a href="default.asp">1.Ponentes</a></td>
+			</tr>
+			<tr>
+				<td><a href="default.asp">2.Comentarios</a></td>
+			</tr>
+			<tr>
+				<td><a href="default.asp">3.Preguntas</a></td>
+			</tr>
+			<tr>
+				<td><a href="default.asp">4.Notas</a></td>
+			</tr>
+			<tr>
+				<td><a href="default.asp">5.Recursos</a></td>
+			</tr>
+			</table>
+		</div><br>
 			
 			<div id="Tabla">
 				<table align="center">
@@ -41,7 +62,7 @@
 						</tr>
 					</thead>
 					<?php
-					$con=mysqli_connect("localhost","root","wcuadra", "jsanchez");
+					$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 					// Check connection
 					if (mysqli_connect_errno())
 					{
@@ -52,7 +73,7 @@
 					{
 						$IdSesion = $_GET['IdSesion'];
 					}
-					$query2 = sprintf("SELECT U.NombrePersona, U.NombreUsuario, U.CorreoElectronico FROM sac_usuario U inner join sac_usuarioxsesion US on U.IdUsuario = US.FK_IdUsuario where US.FK_IdSesion = %s", $IdSesion);
+					$query2 = sprintf("SELECT U.NombrePersona, U.NombreUsuario, U.CorreoElectronico FROM SAC_Usuario U inner join SAC_UsuarioXSesion US on U.IdUsuario = US.FK_IdUsuario where US.FK_IdSesion = %s", $IdSesion);
 					$result1 = mysqli_query($con,$query2);
 					while($row1 = mysqli_fetch_array($result1))
 					{
@@ -95,7 +116,7 @@
 					echo '</select>';
 					mysqli_close($con);
 				?>
-				</div><br><br>
+				</div><br><br><br><br>
 				<input type="button" id="btnAsignar" value="Asignar Usuario" onclick="validarForm()" class="TipoBoton3" />
 			    </fieldset>
 			    </form>

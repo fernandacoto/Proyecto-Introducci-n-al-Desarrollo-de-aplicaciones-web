@@ -18,11 +18,11 @@
 		<div id="Contenido">
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
-					<li><a href="#Perfil">Perfil</a></li>
-					<li><a href="#Eventos">Eventos</a></li>
-					<li><a href="#TiposSesion">Tipos de Sesión</a></li>
-					<li><a href="#Salones">Salones</a></li>				
-					<li><a href="#CerrarSesion">Cerrar Sesión</a></li>
+					<li><a href="./IniciarSesion.php">Iniciar Sesión</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
+					<li><a href="./VerTipoSesiones.html">Tipos de Sesión</a></li>
+					<li><a href="./VerSalones.html">Salones</a></li>					
+					<li><a href="../Registro/RegistroPaso1.php">Registrarse</a></li>
 				</ul>
 			</div><br>
 			<div>
@@ -30,7 +30,7 @@
 				<label class="Titulo1">Hilos<br></label></span><br>
 			</div>
 			<div id = "Botones">
-				<button onclick="location.href='./CrearEventos.html'" class="TipoBoton1">Volver</button><br>
+				<button onclick="location.href='./CrearEventos.php'" class="TipoBoton1">Volver</button><br>
 			</div>
 			
 			<div id="Tabla" class="Tabla">
@@ -44,7 +44,7 @@
 					</tr>
 				</thead>
 						<?php
-							$con=mysqli_connect("localhost","murena","murena","jsanchez");
+							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 							// Check connection
 							if (mysqli_connect_errno())
 							  {
@@ -54,7 +54,7 @@
 							if(isset($_GET['idProyecto'])) {
 								$idEvento =  $_GET["idProyecto"];
 							}
-							$result = mysqli_query($con,'SELECT * FROM `sac_hilo` where FK_IdEvento ='.$idEvento.';');
+							$result = mysqli_query($con,'SELECT * FROM SAC_Hilo where FK_IdEvento ='.$idEvento.';');
 							while($row = mysqli_fetch_array($result)){
 								$idHilo = $row['IdHilo'];	
 								echo '<tr>';

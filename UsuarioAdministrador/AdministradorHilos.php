@@ -19,12 +19,12 @@
 		<div id="Contenido">
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
-					<li><a href="./AsignarPermisos.html">Permisos</a></li>
-					<li><a href="./AsignarUsuarios.html">Usuarios</a></li>
-					<li><a href="./CrearEventos.html">Eventos</a></li>
-					<li><a href="./CrearTipoSesion.html">Tipos de Sesión</a></li>
+					<li><a href="./AsignarPermisos.php">Permisos</a></li>
+					<li><a href="./AsignarUsuarios.php">Usuarios</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
+					<li><a href="./CrearTipoSesion.php">Tipos de Sesión</a></li>
 					<li><a href="./CrearSalon.html">Salones</a></li>				
-					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
+					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>
 				</ul>
 			</div><br>
 			<div>
@@ -32,7 +32,7 @@
 				<label class="Titulo1">Hilos<br></label></span><br>
 			</div>
 			<div id = "Botones">
-				<button  onclick="location.href='./CrearEventos.html'" id="Volver">Volver</button><br>
+				<button  onclick="location.href='./CrearEventos.php'" id="Volver">Volver</button><br>
 				<button id="Nuevo" onclick="Mostrar()">Nuevo Hilo</button><br>
 			</div>
 			
@@ -49,7 +49,7 @@
 					</tr>
 				</thead>
 					<?php
-							$con=mysqli_connect("localhost","murena","murena","jsanchez");
+							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 							// Check connection
 							if (mysqli_connect_errno())
 							  {
@@ -59,7 +59,7 @@
 							if(isset($_GET['idProyecto'])) {
 								$idEvento =  $_GET["idProyecto"];
 							}
-							$result = mysqli_query($con,'SELECT * FROM `sac_hilo` where FK_IdEvento ='.$idEvento.';');
+							$result = mysqli_query($con,'SELECT * FROM SAC_Hilo where FK_IdEvento ='.$idEvento.';');
 							while($row = mysqli_fetch_array($result)){
 								$idHilo = $row['IdHilo'];	
 								echo '<tr>';

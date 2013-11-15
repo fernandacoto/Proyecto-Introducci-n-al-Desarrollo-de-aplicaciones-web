@@ -6,6 +6,7 @@
 <title>SAC</title>
 <link rel="stylesheet" type="text/css" href="../estilos/EstilosGenericos.css">
 <link rel="stylesheet" type="text/css" href="../estilos/AgregarRecursos.css">
+<script src="../js/Preguntas.js"> </script>
 </head>
 
 <body>
@@ -20,15 +21,15 @@
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
 					<li><a href="./PerfilUsuario.html">Perfil</a></li>
-					<li><a href="./CrearEventos.html">Eventos</a></li>
-					<li><a href="./VerTipoSesiones.html">Tipos de SesiÃ³n</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
+					<li><a href="./VerTipoSesiones.html">Tipos de Sesión</a></li>
 					<li><a href="./VerSalones.html">Salones</a></li>
 					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
 				</ul>
 			</div>
 		</div> <br>
-		<label class="Titulo1">Detalles de sesi&oacute;n &nbsp;</label>
-		<label class="Titulo2">Sesion1</label><br><br>
+		<label class="Titulo1">Respuestas de preguntas</label>
+		<label class="Titulo2">Respuesta</label><br><br>
 		<div id="col1" width="20%">
 			<label class="Titulo2">Menu
 			</label>
@@ -54,21 +55,37 @@
 			<table align="center">
 			<thead>
 				<tr>
-				<th><label>Recurso</label></th>
-				<th><label>Tipo</label></th>
-				<th><label>Usuario</label></th>
-				<th><label>Ver</label></th>
+				<th><label>Respuesta</label></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-				<th><label>Recurso 1</label></th>
-				<th><label>URL</label></th>
-				<th><label>usuario 1</label></th>
-				<th><button id="ver" class="TipoBoton2"><img src="../multimedia/BotonVerDetalle.png" height="30" width="30"></button></th>	
-				</tr>
+				<?php
+					$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
+					// Check connection
+					if (mysqli_connect_errno())
+					{
+						echo "Failed to connect to MySQL: " . mysqli_connect_error();
+					}
+					$IdPregunta;
+					if(isset($_GET['IdPregunta']))
+					{
+						$IdPregunta = $_GET['IdPregunta'];
+					}
+					$query = sprintf("SELECT Respuesta FROM SAC_Pregunta P where P.IdPregunta = %s", $IdPregunta);
+					$result2 = mysqli_query($con,$query);
+					
+					while($row2 = mysqli_fetch_array($result2))
+					{
+						echo '<tr>';
+						echo "<th>" . $row2['Respuesta'] . "</th>";
+						echo "</tr>";
+					}
+					mysqli_close($con);
+				?>
 			</tbody>
 			</table><br>
+			
+			
 		</div>
 	</div>
 </body>
