@@ -27,6 +27,6 @@
     $result = mysqli_query($con, $query);
     echo $result;
    	mysqli_close($con);
-	$url = 'http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioAdministrador/AdministradorEventos.php'; 
+	$url = 'http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioAdministrador/CrearEventos.php'; 
 	header( "Location: $url" );
 ?>
