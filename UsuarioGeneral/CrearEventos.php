@@ -23,9 +23,10 @@
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
 					<li><a href="./IniciarSesion.php">Iniciar Sesión</a></li>
-					<li><a href="./CrearEventos.html">Eventos</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
 					<li><a href="./VerTipoSesiones.html">Tipos de Sesión</a></li>
-					<li><a href="./VerSalones.html">Salones</a></li>
+					<li><a href="./VerSalones.html">Salones</a></li>					
+					<li><a href="../Registro/RegistroPaso1.php">Registrarse</a></li>
 				</ul>
 			</div>
 		</div><br><br>		
@@ -46,7 +47,7 @@
 					</thead>
 					<tbody>
 						<?php
-							$con=mysqli_connect("localhost","murena","murena","jsanchez");
+							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 							// Check connection
 							if (mysqli_connect_errno())
 							  {
