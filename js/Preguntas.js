@@ -1,6 +1,14 @@
 function mostrar_formulario()
 {
-	document.getElementById("formulario_recurso").style.display = "block";
+	document.getElementById("formulario_pregunta").style.display = "block";
+	document.getElementById("formulario_respuesta").style.display = "none";
+}
+function mostrar_formulario2(IdPregunta)
+{
+	document.getElementById("formulario_respuesta").style.display = "block";
+	document.getElementById("formulario_pregunta").style.display = "none";
+	var hidden = document.getElementById("IdPregunta");
+	hidden.value = IdPregunta;
 }
 
 function mostrar_subform()
@@ -19,7 +27,7 @@ function mostrar_subform()
 
 function guardar()
 {
-	document.getElementById("formulario_recurso").style.display = "none";
+	document.getElementById("formulario_pregunta").style.display = "none";
 }
 
 function validarCampos()
@@ -31,5 +39,25 @@ function validarCampos()
 		FormularioNuevaPregunta.InputDescripcion.focus();
     	alert('La descripcion de la pregunta es un campo requerido.');
     	return false;
+	}else
+	{
+		document.forms["FormPregunta"].submit();
+	}
+}
+
+
+
+function validarCamposResp()
+{
+	FormularioNuevaRespuesta = document.getElementById("FormRespuesta");
+	
+	if (FormularioNuevaRespuesta.InputRespuesta.value.length == 0)
+	{
+		FormularioNuevaRespuesta.InputRespuesta.focus();
+    	alert('La respuesta de la pregunta es un campo requerido.');
+    	return false;
+	}else
+	{
+		document.forms["FormRespuesta"].submit();
 	}
 }
