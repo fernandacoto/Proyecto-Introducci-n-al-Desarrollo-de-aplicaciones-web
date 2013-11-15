@@ -160,7 +160,7 @@
 							echo '<select class="selects" id="salon" name="salon">';
 							while($row2 = mysqli_fetch_array($result2))
 							{
-								echo '<option value=' . $row2['IdSalon'] .'>' . $row2['DetalleSalon'] . '</option>';
+								echo '<option value=' . $row2['IdSalon'] .'>' . $row2['NombreSalon'] . '</option>';
 							}
 							echo '</select>';
 							mysqli_close($con);
