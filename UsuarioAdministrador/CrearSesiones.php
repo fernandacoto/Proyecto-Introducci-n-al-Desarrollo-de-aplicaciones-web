@@ -59,7 +59,7 @@
 						if(isset($_GET['idHilo'])) {
 							$idHilo=  $_GET["idHilo"];
 						}
-						$query  =  sprintf("SELECT S.NombreSesion, S.HoraInicioSesion, S.HoraFinSesion, T.NombreTipoSesion, Sa.DetalleSalon FROM SAC_Sesion S INNER JOIN SAC_TipoSesion T Inner Join SAC_Salon Sa on S.FK_idTipoSesion = T.idTipoSesion and S.FK_idSalon = Sa.IdSalon where S.FK_IdHilo = %s;",$idHilo);			
+						$query  =  sprintf("SELECT S.NombreSesion, S.HoraInicioSesion, S.HoraFinSesion, T.NombreTipoSesion, Sa.NombreSalon FROM SAC_Sesion S INNER JOIN SAC_TipoSesion T Inner Join SAC_Salon Sa on S.FK_idTipoSesion = T.idTipoSesion and S.FK_idSalon = Sa.IdSalon where S.FK_IdHilo = %s;",$idHilo);			
 						$result = mysqli_query($con,$query);  
 						while($row = mysqli_fetch_array($result)){	
 							echo '<tr>';
@@ -67,7 +67,7 @@
 							echo '<th>'. $row['HoraInicioSesion'] .'</th>';
 							echo '<th>'. $row['HoraFinSesion'] .'</th>';
 							echo '<th>'. $row['NombreTipoSesion'] .'</th>';
-							echo '<th>'. $row['DetalleSalon'] .'</th>';
+							echo '<th>'. $row['NombreSalon'] .'</th>';
 							echo '<th><button id="favorito" class="TipoBoton2"><img src="../multimedia/BotonFavorito.gif" height="30" width="30"></button></th>';
 							echo '<th><button id="editar" onclick="mostrar_formulario()" class="TipoBoton2"><img src="../multimedia/BotonEditar.png" height="30" width="30"></button></th>';	
 							echo '<th><button id="eliminar" class="TipoBoton2"><img src="../multimedia/BotonEliminar.png" height="30" width="30"></button></th>';
