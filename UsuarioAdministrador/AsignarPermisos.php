@@ -53,12 +53,12 @@ function asignar(IdUsuario, Seleccion)
 		<div id="Contenido">
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
-					<li><a href="./AsignarPermisos.html">Permisos</a></li>
-					<li><a href="./AsignarUsuarios.html">Usuarios</a></li>
-					<li><a href="./CrearEventos.html">Eventos</a></li>
-					<li><a href="./CrearTipoSesion.html">Tipos de Sesión</a></li>
+					<li><a href="./AsignarPermisos.php">Permisos</a></li>
+					<li><a href="./AsignarUsuarios.php">Usuarios</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
+					<li><a href="./CrearTipoSesion.php">Tipos de Sesión</a></li>
 					<li><a href="./CrearSalon.html">Salones</a></li>				
-					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
+					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>
 				
 				</ul>
 			</div>
@@ -76,13 +76,13 @@ function asignar(IdUsuario, Seleccion)
 					</tr>
 				</thead>
 					<?php
-					$con=mysqli_connect("localhost","root","wcuadra", "jsanchez");
+					$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 					// Check connection
 					if (mysqli_connect_errno())
 					{
 						echo "Failed to connect to MySQL: " . mysqli_connect_error();
 					}
-					$result1 = mysqli_query($con,"SELECT * FROM SAC_usuario");
+					$result1 = mysqli_query($con,"SELECT * FROM SAC_Usuario");
 					$cont = 0;
 					while($row1 = mysqli_fetch_array($result1))
 					{

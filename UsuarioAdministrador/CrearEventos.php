@@ -28,12 +28,12 @@
 		<div id="Contenido">
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
-					<li><a href="./AsignarPermisos.html">Permisos</a></li>
-					<li><a href="./AsignarUsuarios.html">Usuarios</a></li>
-					<li><a href="./CrearEventos.html">Eventos</a></li>
-					<li><a href="./CrearTipoSesion.html">Tipos de Sesión</a></li>
+					<li><a href="./AsignarPermisos.php">Permisos</a></li>
+					<li><a href="./AsignarUsuarios.php">Usuarios</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
+					<li><a href="./CrearTipoSesion.php">Tipos de Sesión</a></li>
 					<li><a href="./CrearSalon.html">Salones</a></li>				
-					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
+					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>
 				</ul>
 			</div>
 		</div><br><br>		
@@ -66,14 +66,14 @@
 					<tbody>
 					
 						<?php
-							$con=mysqli_connect("localhost","murena","murena","jsanchez");
+							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 							// Check connection
 							if (mysqli_connect_errno())
 							  {
 							  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 							  }
 							
-							$result = mysqli_query($con,"SELECT * FROM `sac_evento`");
+							$result = mysqli_query($con,"SELECT * FROM SAC_Evento");
 							while($row = mysqli_fetch_array($result)){
 								$idEvento = $row['IdEvento'];	
 								echo '<tr>';

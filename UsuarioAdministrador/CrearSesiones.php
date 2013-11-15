@@ -20,10 +20,10 @@
 		<div id="Contenido">
 			<div id="MenuBar" class="MenuBar" >
 				<ul>
-					<li><a href="./AsignarPermisos.html">Permisos</a></li>
-					<li><a href="./AsignarUsuarios.html">Usuarios</a></li>
-					<li><a href="./CrearEventos.html">Eventos</a></li>
-					<li><a href="./CrearTipoSesion.html">Tipos de Sesión</a></li>
+					<li><a href="./AsignarPermisos.php">Permisos</a></li>
+					<li><a href="./AsignarUsuarios.php">Usuarios</a></li>
+					<li><a href="./CrearEventos.php">Eventos</a></li>
+					<li><a href="./CrearTipoSesion.php">Tipos de Sesión</a></li>
 					<li><a href="./CrearSalon.html">Salones</a></li>				
 					<li><a href="../UsuarioGeneral/IniciarSesion.php" onclick="return cerrarSesion()">Cerrar Sesi&oacute;n</a></li>	
 				</ul>
@@ -31,7 +31,7 @@
 		</div><br>
 		<input type="button" id="NuevaSesion" value="Nueva sesi&oacute;n" onclick="mostrar_formulario()" class="TipoBoton1" />
 		<input type="button" id="VerSesiones" value="Ver todas las sesiones" class="TipoBoton1">
-		<input type="button" id="Volver" onclick="location.href='./AdministradorHilos.html'" value="Volver" class="TipoBoton1"><br><br>
+		<input type="button" id="Volver" onclick="location.href='./AdministradorHilos.php'" value="Volver" class="TipoBoton1"><br><br>
 		<div>
 			<table align="center">
 			<thead>
@@ -49,7 +49,7 @@
 				<tbody>
 				<tr>
 					<?php
-						$con=mysqli_connect("localhost","murena","murena","jsanchez");
+						$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 						// Check connection
 						if (mysqli_connect_errno())
 						  {
@@ -59,7 +59,7 @@
 						if(isset($_GET['idHilo'])) {
 							$idHilo=  $_GET["idHilo"];
 						}
-						$query  =  sprintf("SELECT S.NombreSesion, S.HoraInicioSesion, S.HoraFinSesion, T.NombreTipoSesion, Sa.DetalleSalon FROM sac_sesion S INNER JOIN sac_tiposesion T Inner Join sac_salon Sa on S.FK_idTipoSesion = T.idTipoSesion and S.FK_idSalon = Sa.IdSalon where S.FK_IdHilo = %s;",$idHilo);			
+						$query  =  sprintf("SELECT S.NombreSesion, S.HoraInicioSesion, S.HoraFinSesion, T.NombreTipoSesion, Sa.DetalleSalon FROM SAC_Sesion S INNER JOIN SAC_TipoSesion T Inner Join SAC_Salon Sa on S.FK_idTipoSesion = T.idTipoSesion and S.FK_idSalon = Sa.IdSalon where S.FK_IdHilo = %s;",$idHilo);			
 						$result = mysqli_query($con,$query);  
 						while($row = mysqli_fetch_array($result)){	
 							echo '<tr>';
@@ -94,7 +94,7 @@
 						<textarea id="descripcion" name="descripcion"></textarea><div id="escondido"><label id="warning2">*Este es un campo requerido</label></div><br><br>
 						<label>Hilo &nbsp;</label>
 						<?php
-							$con=mysqli_connect("localhost","murena","murena", "jsanchez");
+							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 							// Check connection
 							if (mysqli_connect_errno())
 							{
@@ -105,7 +105,7 @@
 							{
 								$IdSesion = $_GET['IdSesion'];
 							}
-							$result2 = mysqli_query($con,"SELECT * FROM `sac_hilo`");
+							$result2 = mysqli_query($con,"SELECT * FROM SAC_Hilo");
 							echo '<select class="selects" id="Hilos" name="Hilos">';
 							while($row2 = mysqli_fetch_array($result2))
 							{
@@ -123,7 +123,7 @@
 						<input type="text" id="HoraFin" name="HoraFin">	<div id="escondido"><label id="warning4">*Este es un campo requerido</label></div><br><br>
 						<label>Tipo de sesi&oacute;n &nbsp;</label>
 						<?php
-							$con=mysqli_connect("localhost","murena","murena", "jsanchez");
+							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 							// Check connection
 							if (mysqli_connect_errno())
 							{
@@ -134,7 +134,7 @@
 							{
 								$IdSesion = $_GET['IdSesion'];
 							}
-							$result2 = mysqli_query($con,"SELECT * FROM `sac_tiposesion`");
+							$result2 = mysqli_query($con,"SELECT * FROM SAC_TipoSesion");
 							echo '<select class="selects" id="Tiposesion" name="Tiposesion">';
 							while($row2 = mysqli_fetch_array($result2))
 							{
@@ -145,7 +145,7 @@
 						?>
 						<br><br><label>Sal&oacute;n &nbsp;</label>
 						<?php
-							$con=mysqli_connect("localhost","murena","murena", "jsanchez");
+							$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 							// Check connection
 							if (mysqli_connect_errno())
 							{
@@ -156,7 +156,7 @@
 							{
 								$IdSesion = $_GET['IdSesion'];
 							}
-							$result2 = mysqli_query($con,"SELECT * FROM `sac_salon`");
+							$result2 = mysqli_query($con,"SELECT * FROM SAC_Salon");
 							echo '<select class="selects" id="salon" name="salon">';
 							while($row2 = mysqli_fetch_array($result2))
 							{

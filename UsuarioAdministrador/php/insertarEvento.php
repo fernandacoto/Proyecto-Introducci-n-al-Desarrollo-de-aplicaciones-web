@@ -8,25 +8,25 @@
 	$SelectTipoPlazo= $_POST["SelectTipoPlazo"];
 	$InputFechaFinEvento= $_POST["InputFechaFinEvento"];
 
-	$con=mysqli_connect("localhost","murena","murena","jsanchez");
+	$con=mysqli_connect("terraba.ic-itcr.ac.cr","jsanchez","jsanchez","jsanchez");
 	// Check connection
 	if (mysqli_connect_errno())
 	  {
 	  echo "Failed to connect to MySQL: " . mysqli_connect_error();
 	  }
-	$query = sprintf("INSERT INTO `SAC_Evento` (`IdEvento`, `NombreEvento`, `DescripcionEvento`, `LugarEvento`, `FechaInicioEvento`, `FechaFinEvento`, `PlazoPropuesta`, `TipoPlazoPropuesta`) VALUES (NULL, '%s', '%s', '%s', '%s', '%s', '%s', '%s');",
-    mysql_real_escape_string($InputNombreEvento),
-    mysql_real_escape_string($InputDescripcionEvento),
-    mysql_real_escape_string($InputFechaInicioEvento),
-    mysql_real_escape_string($InputFechaFinEvento),
-    mysql_real_escape_string($InputPlazoPropuestaEvento),
-    mysql_real_escape_string($SelectTipoPlazo),
-    mysql_real_escape_string($InputFechaFinEvento)    
+	$query = sprintf("INSERT INTO SAC_Evento (`IdEvento`, `NombreEvento`, `DescripcionEvento`, `LugarEvento`, `FechaInicioEvento`, `FechaFinEvento`, `PlazoPropuesta`, `TipoPlazoPropuesta`) VALUES (NULL, '%s', '%s', '%s', '%s', '%s', '%s', '%s');",
+    $InputNombreEvento,
+    $InputDescripcionEvento,
+    $InputFechaInicioEvento,
+    $InputFechaFinEvento,
+    $InputPlazoPropuestaEvento,
+    $SelectTipoPlazo,
+    $InputFechaFinEvento    
     );
 	echo $query;
     $result = mysqli_query($con, $query);
     echo $result;
    	mysqli_close($con);
-	$url = 'http://proyecto/Repositorio/UsuarioAdministrador/AdministradorEventos.php'; 
+	$url = 'http://ic-itcr.ac.cr/~fcoto/SAC/UsuarioAdministrador/AdministradorEventos.php'; 
 	header( "Location: $url" );
 ?>
